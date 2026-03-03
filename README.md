@@ -5,7 +5,14 @@ No Canva. No build tools. No dependencies. Just our code.
 
 **Live:** [robotfantome.com](https://robotfantome.com)
 
-Auto-deploys via GitHub Actions on every push to `main`.
+Auto-deploys via **Cloudflare Pages** on every push to `main`.
+No build step — the repo root is served directly.
+
+To preview locally:
+
+```sh
+python3 -m http.server 8080
+```
 
 ---
 

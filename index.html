@@ -3,639 +3,778 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>robot fantôme — portfolio</title>
-  <meta name="description" content="Open Source Networks — robot fantôme" />
-
-  <!-- Favicon -->
+  <title>robot fantôme — robotfantome.com</title>
+  <meta name="description" content="Luiz Wagner Mestrinho — Open Source Networks — robot fantôme" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-
-  <!-- Font: Share Tech Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ── Navigation ──────────────────────────────────────────── -->
-  <nav>
-    <div class="container">
-      <a href="#" class="nav-brand">Robot Fantôme</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+  <!-- ── Top Nav ─────────────────────────────────────────────── -->
+  <header class="gh-nav">
+    <div class="gh-nav-inner">
+      <a href="#" class="gh-nav-brand" aria-label="robot fantôme home">
+        <svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm7-3.25v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5a.75.75 0 0 1 1.5 0Z"/></svg>
+        <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
+      </a>
+
+      <nav class="gh-nav-links" aria-label="Site navigation">
+        <a href="#" data-tab="overview">overview</a>
+        <a href="#" data-tab="opensource">opensource</a>
+        <a href="#" data-tab="mixtape">mix-tape</a>
+        <a href="#" data-tab="sustainability">sustainability</a>
+        <a href="#" data-tab="about">about</a>
+        <a href="#" data-tab="volunteer">volunteer</a>
+      </nav>
+
+      <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
-        <li><a href="#opensource">opensource</a></li>
-        <li><a href="#mix-tape">mix-tape</a></li>
-        <li><a href="#sustainability">sustainability</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#volunteer-links-ideas">volunteer/links/ideas</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- ── Hero ────────────────────────────────────────────────── -->
-  <header class="hero">
-    <div class="container">
-      <p class="hero-prefix">// init_sequence :: absolutely plausible</p>
-      <h1 class="hero-title" data-text="Robot Fantôme">Robot Fantôme</h1>
-      <p class="hero-subtitle">Portfolio &nbsp;/&nbsp; Open Source Networks</p>
-      <img
-        src="assets/images/community-letter-collage.jpg"
-        alt="Community Letter Collage"
-        class="hero-image"
-      />
-      <p class="cc-notice">
-        Community Letter Collage &copy; 2017 by robot fant&ocirc;me is licensed under
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Attribution-NonCommercial 4.0 International</a>
-      </p>
+      <a href="https://www.linkedin.com/in/mestrinho/" target="_blank" rel="noopener" class="gh-nav-user" aria-label="LinkedIn profile">
+        <img src="assets/images/wags-circle.jpg" alt="" class="gh-nav-avatar" />
+      </a>
     </div>
   </header>
 
-  <!-- ── OpenSource ──────────────────────────────────────────── -->
-  <section id="opensource">
-    <div class="container">
-      <p class="section-label">module_01</p>
-      <h2 class="section-heading">Opensource</h2>
-      <p class="section-body">
-        A place to promote open-source, and all of the million-infinite solutions
-        that internet has provided to us for FREE!
-      </p>
-      <ul class="opensource-links">
-        <li><a href="https://remix-project.org" target="_blank" rel="noopener">Remix IDE — Ethereum smart contract development</a></li>
-        <li><a href="https://web3js.readthedocs.io/en/1.0/" target="_blank" rel="noopener">Web3.js — Ethereum JavaScript API</a></li>
-        <li><a href="https://docs.ethers.io/" target="_blank" rel="noopener">Ethers.js — Ethereum library and wallet</a></li>
-        <li><a href="https://www.earthdatascience.org" target="_blank" rel="noopener">Earth Data Science — open learning resources</a></li>
-      </ul>
+  <!-- ── Profile Layout ──────────────────────────────────────── -->
+  <div class="gh-layout">
 
-      <img
-        src="assets/images/art-is-local.png"
-        alt="Art is LOCAL"
-        class="hero-image"
-        style="margin-top: 2.5rem;"
-      />
-      <p class="cc-notice">
-        Art is LOCAL &copy; 2017 by robot fant&ocirc;me is licensed under
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Attribution-NonCommercial 4.0 International</a>
-      </p>
-    </div>
-  </section>
+    <!-- ── Left Sidebar ──────────────────────────────────────── -->
+    <aside class="gh-sidebar">
 
-  <!-- ── Mix-Tape ─────────────────────────────────────────────── -->
-  <section id="mix-tape">
-    <div class="container">
-      <p class="section-label">module_02</p>
-      <h2 class="section-heading">Mix-Tape</h2>
-      <p class="section-body">Music and people that we love and love to share.</p>
-
-      <!-- Robot Fantôme featured -->
-      <div class="mixtape-featured">
-        <h3 class="mixtape-featured-title">Robot Fantôme</h3>
-        <p class="mixtape-featured-desc">
-          Indie / Punk / Rock &mdash; stolenghost recordings
-        </p>
-        <a href="https://distrokid.com/hyperfollow/robotfantme/stolenghost-recordings" target="_blank" rel="noopener">
-          Listen on DistroKid / stolenghost-recordings &rarr;
-        </a>
+      <div class="gh-avatar-wrap">
+        <img src="assets/images/wags-circle.jpg" alt="Luiz Wagner Mestrinho" class="gh-avatar" />
       </div>
 
-      <img
-        src="assets/images/blue-collage.jpg"
-        alt="Blue Collage"
-        class="mixtape-image"
-      />
-      <p class="cc-notice">
-        Blue Collage &copy; 2017 by robot fant&ocirc;me is licensed under
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+      <div class="gh-profile-names">
+        <h1 class="gh-display-name">Luiz Wagner Mestrinho</h1>
+        <p class="gh-handle">robotfantome</p>
+      </div>
+
+      <p class="gh-bio">
+        Brazilian-born, Orlando-based trilingual engineer and creative.
+        Civic hacker, climate justice artist, developer advocate.
+        Always learning &mdash; always paying it forward.
       </p>
 
-      <!-- Artists -->
-      <ul class="mixtape-artists">
+      <a href="https://www.linkedin.com/in/mestrinho/" target="_blank" rel="noopener" class="gh-follow-btn">
+        Follow on LinkedIn
+      </a>
 
-        <li class="artist-entry">
-          <p class="artist-name">Niko Is</p>
-          <ul class="artist-links">
-            <li><a href="https://kweliclub.com/products/niko-is-juni-ali-the-adventures-of-the-young-viejos-lp" target="_blank" rel="noopener">The Adventures of the Young Viejos LP</a></li>
-          </ul>
+      <ul class="gh-meta">
+        <li>
+          <svg class="gh-meta-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M1.5 14s-.28 0-.363-.042a.5.5 0 0 1-.265-.375C.869 13.52 1 13.438 1 13c0-2.206 3.164-4 7-4s7 1.794 7 4c0 .438.13.52.128.583a.5.5 0 0 1-.265.375c-.083.042-.363.042-.363.042H1.5ZM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+          Chief Growth Officer &middot; Sustainability Analyst &middot; Product Security Engineer
         </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">Jayo</p>
-          <ul class="artist-links">
-            <li><a href="https://jayomusic.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a></li>
-          </ul>
+        <li>
+          <svg class="gh-meta-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"/></svg>
+          Orlando, Florida, USA
         </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">L'ocean</p>
-          <ul class="artist-links">
-            <li><a href="https://linktr.ee/loceandance" target="_blank" rel="noopener">Linktree</a></li>
-            <li><a href="https://www.instagram.com/loceandance/" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
+        <li>
+          <svg class="gh-meta-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25Zm-4.69 9.64a2 2 0 0 1 0-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83 0Z"/></svg>
+          <a href="https://robotfantome.com" target="_blank" rel="noopener">robotfantome.com</a>
         </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">Laghima</p>
-          <ul class="artist-links">
-            <li><a href="https://beacons.ai/laghima" target="_blank" rel="noopener">Beacons</a></li>
-          </ul>
+        <li>
+          <svg class="gh-meta-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+          <a href="https://github.com/wmestrinho" target="_blank" rel="noopener">wmestrinho</a>
         </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">Henry Daher</p>
-          <ul class="artist-links">
-            <li><a href="https://www.henrydaher.com" target="_blank" rel="noopener">henrydaher.com</a></li>
-          </ul>
+        <li>
+          <svg class="gh-meta-icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15Z"/></svg>
+          <a href="https://twitter.com/robotfantome" target="_blank" rel="noopener">@robotfantome</a>
         </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">Thanks Joey</p>
-          <ul class="artist-links">
-            <li><a href="https://linktr.ee/itsColours" target="_blank" rel="noopener">Linktree</a></li>
-            <li><a href="https://www.instagram.com/thanksjoey/" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
-        </li>
-
-        <li class="artist-entry">
-          <p class="artist-name">C. Terry</p>
-          <ul class="artist-links">
-            <li><a href="https://music.apple.com/us/album/loosen-the-screws/1646501091?i=1646501092" target="_blank" rel="noopener">Loosen the Screws — Apple Music</a></li>
-          </ul>
-        </li>
-
       </ul>
-    </div>
-  </section>
 
-  <!-- ── Sustainability ────────────────────────────────────────── -->
-  <section id="sustainability">
-    <div class="container">
-      <p class="section-label">module_03</p>
-      <h2 class="section-heading">Sustainability</h2>
-      <p class="section-body">
-        Currently working with a friend helping to build and grow their business,
-        from the ground up!
-      </p>
-      <ul class="sustainability-links">
-        <li><a href="https://image.info.globalalumni.org/lib/fe28117371640475721276/m/1/0ea0cadf-f2d9-42fe-9d8d-42302d2a7b3f.pdf" target="_blank" rel="noopener">MIT Sustainability Course &rarr;</a></li>
-        <li><a href="https://sumauma.com" target="_blank" rel="noopener">Suma&uacute;ma — Climate journalism from the Amazon &rarr;</a></li>
-      </ul>
-    </div>
-  </section>
+      <div class="gh-sidebar-section">
+        <h2 class="gh-sidebar-title">// social</h2>
+        <nav class="social-grid" aria-label="Social media links">
+          <a href="https://www.instagram.com/absolutelyplausible/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/icons/instagram.svg" alt="Instagram" />
+          </a>
+          <a href="https://www.tiktok.com/@robotfantome" target="_blank" rel="noopener" aria-label="TikTok">
+            <img src="assets/icons/tiktok.svg" alt="TikTok" />
+          </a>
+          <a href="https://www.linkedin.com/in/mestrinho/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="https://twitter.com/robotfantome" target="_blank" rel="noopener" aria-label="Twitter / X">
+            <img src="assets/icons/twitter.svg" alt="Twitter" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100086621228211" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="assets/icons/facebook.svg" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@robotfantome7404" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="assets/icons/youtube.svg" alt="YouTube" />
+          </a>
+          <a href="https://www.pinterest.com/3sareforus" target="_blank" rel="noopener" aria-label="Pinterest">
+            <img src="assets/icons/pinterest.svg" alt="Pinterest" />
+          </a>
+        </nav>
+      </div>
 
-  <!-- ── About ─────────────────────────────────────────────────── -->
-  <section id="about">
-    <div class="container">
-      <p class="section-label">module_04</p>
-      <h2 class="section-heading">About</h2>
+      <div class="gh-sidebar-section">
+        <h2 class="gh-sidebar-title">// languages</h2>
+        <ul class="gh-lang-list">
+          <li><span class="gh-lang-dot" style="background:#d4621a"></span>Portuguese &mdash; native</li>
+          <li><span class="gh-lang-dot" style="background:#9c5220"></span>English &mdash; fluent</li>
+          <li><span class="gh-lang-dot" style="background:#6b3310"></span>Spanish &mdash; fluent</li>
+        </ul>
+      </div>
 
-      <!-- Identity -->
-      <div class="about-layout">
-        <div>
-          <div class="about-photo-wrap">
+    </aside>
+
+    <!-- ── Main Content ─────────────────────────────────────── -->
+    <main class="gh-main">
+
+      <!-- Tab Bar -->
+      <nav class="gh-tabs" role="tablist" aria-label="Profile sections">
+        <button class="gh-tab active" data-target="overview" role="tab" aria-selected="true">Overview</button>
+        <button class="gh-tab" data-target="opensource" role="tab" aria-selected="false">Opensource</button>
+        <button class="gh-tab" data-target="mixtape" role="tab" aria-selected="false">Mix-Tape</button>
+        <button class="gh-tab" data-target="sustainability" role="tab" aria-selected="false">Sustainability</button>
+        <button class="gh-tab" data-target="about" role="tab" aria-selected="false">About</button>
+        <button class="gh-tab" data-target="volunteer" role="tab" aria-selected="false">Volunteer</button>
+        <button class="gh-tab" data-target="ap" role="tab" aria-selected="false">Absolutely Plausible</button>
+      </nav>
+
+      <!-- ── Panel: Overview ─────────────────────────────────── -->
+      <div class="gh-panel active" id="overview" role="tabpanel">
+
+        <!-- README card -->
+        <div class="gh-readme">
+          <div class="gh-readme-header">
+            <span class="gh-readme-label">README.md</span>
+          </div>
+          <div class="gh-readme-body">
+            <p class="hero-prefix">// init_sequence :: absolutely plausible</p>
+            <h2 class="hero-title" data-text="Robot Fantôme">Robot Fant&ocirc;me</h2>
+            <p class="hero-subtitle">Portfolio &nbsp;/&nbsp; Open Source Networks</p>
             <img
-              src="assets/images/wags-headshot.png"
-              alt="Wags Mestrinho"
-              class="about-photo"
+              src="assets/images/community-letter-collage.jpg"
+              alt="Community Letter Collage"
+              class="hero-image"
             />
+            <p class="cc-notice">
+              Community Letter Collage &copy; 2017 by robot fant&ocirc;me &mdash;
+              <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+            </p>
           </div>
         </div>
-        <div>
-          <h3 class="about-name">Luiz Wagner Mestrinho</h3>
-          <p class="about-titles">
-            Chief Growth Officer<br />
-            Sustainability Analyst<br />
-            Product Security Engineer<br />
-            Back-End Engineer &middot; Photographer
-          </p>
-          <p class="about-bio">
-            Brazilian-born, Orlando-based trilingual engineer and creative.
-            Back-end developer, civic hacker, climate justice artist,
-            developer advocate, singer, multi-instrumentalist.
-            Social connector with roots in hospitality, law, and tech.
-            I learn something new every day &mdash; and pay it forward.
-          </p>
-          <!-- Social Icons -->
-          <nav class="social-grid" aria-label="Social media links">
-            <a href="https://www.instagram.com/absolutelyplausible/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="assets/icons/instagram.svg" alt="Instagram" />
-            </a>
-            <a href="https://www.tiktok.com/@robotfantome" target="_blank" rel="noopener" aria-label="TikTok">
-              <img src="assets/icons/tiktok.svg" alt="TikTok" />
-            </a>
-            <a href="https://www.linkedin.com/in/mestrinho/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-            </a>
-            <a href="https://twitter.com/robotfantome" target="_blank" rel="noopener" aria-label="Twitter / X">
-              <img src="assets/icons/twitter.svg" alt="Twitter" />
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100086621228211" target="_blank" rel="noopener" aria-label="Facebook">
-              <img src="assets/icons/facebook.svg" alt="Facebook" />
-            </a>
-            <a href="https://www.youtube.com/@robotfantome7404" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="assets/icons/youtube.svg" alt="YouTube" />
-            </a>
-            <a href="https://www.pinterest.com/3sareforus" target="_blank" rel="noopener" aria-label="Pinterest">
-              <img src="assets/icons/pinterest.svg" alt="Pinterest" />
-            </a>
-          </nav>
+
+        <!-- Pinned modules -->
+        <div class="gh-pinned-header">
+          <span class="gh-pinned-label">Pinned</span>
+        </div>
+        <div class="gh-pinned-grid">
+
+          <button class="gh-pinned-card" data-tab="opensource">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_01</span>
+            </div>
+            <h3 class="gh-pinned-name">Opensource</h3>
+            <p class="gh-pinned-desc">Promoting open-source and all the free solutions the internet provides.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#d4621a"></span>HTML</span>
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#9c5220"></span>CSS</span>
+            </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="mixtape">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_02</span>
+            </div>
+            <h3 class="gh-pinned-name">Mix-Tape</h3>
+            <p class="gh-pinned-desc">Music and people we love and love to share. Indie, Punk, Rock.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#d4621a"></span>Music</span>
+            </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="sustainability">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_03</span>
+            </div>
+            <h3 class="gh-pinned-name">Sustainability</h3>
+            <p class="gh-pinned-desc">Climate justice, community business building, and Amazon journalism.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#9c5220"></span>Climate</span>
+            </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="about">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_04</span>
+            </div>
+            <h3 class="gh-pinned-name">About</h3>
+            <p class="gh-pinned-desc">20 years of experience. Tech, legal, hospitality, and the arts.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#d4621a"></span>EN</span>
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#9c5220"></span>PT</span>
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#6b3310"></span>ES</span>
+            </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="volunteer">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_05</span>
+            </div>
+            <h3 class="gh-pinned-name">Volunteer</h3>
+            <p class="gh-pinned-desc">Bach Festival, wildlife rescue, Vipassana, community arts, and more.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#d4621a"></span>Community</span>
+            </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="ap">
+            <div class="gh-pinned-top">
+              <span class="gh-pinned-module">module_06</span>
+            </div>
+            <h3 class="gh-pinned-name">Absolutely Plausible</h3>
+            <p class="gh-pinned-desc">Est. 2008 &mdash; collaborative projects, community events, open-source culture.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#9c5220"></span>Creative</span>
+            </div>
+          </button>
+
         </div>
       </div>
 
-      <!-- Work History -->
-      <div class="resume-block">
-        <h3 class="resume-block-title">// work_history</h3>
-        <ul class="timeline">
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">AdventHealth</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Marketing Consumer Experience Specialist</div>
-            <div class="timeline-dates">Mar 2023 &mdash; Oct 2023</div>
-            <ul class="timeline-bullets">
-              <li>Trilingual patient-facing communications (EN / PT / ES)</li>
-              <li>Enterprise software, receptionist operations, team coordination</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">City Catt</span>
-              <span class="timeline-location">United States &middot; Remote</span>
-            </div>
-            <div class="timeline-role">Developer Advocate &mdash; Internship</div>
-            <div class="timeline-dates">Jan 2021 &mdash; Present</div>
-            <ul class="timeline-bullets">
-              <li>JavaScript, AngularJS, IT hardware support and technical documentation</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Premier Events</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Bartender &mdash; Seasonal</div>
-            <div class="timeline-dates">Jan 2021 &mdash; Present</div>
-            <ul class="timeline-bullets">
-              <li>Event service, public-facing hospitality, multilingual customer relations</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Law Office of John Jordan</span>
-              <span class="timeline-location">Orlando, FL &middot; Hybrid</span>
-            </div>
-            <div class="timeline-role">IT Support Specialist</div>
-            <div class="timeline-dates">Mar 2020 &mdash; Jul 2022</div>
-            <ul class="timeline-bullets">
-              <li>IT service management, hardware troubleshooting, case management systems</li>
-              <li>Court appearances in-person and remote; legal document management &amp; family law support</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Absolutely Plausible 2</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Founder &mdash; Self-Employed</div>
-            <div class="timeline-dates">Jul 2014 &mdash; Present</div>
-            <ul class="timeline-bullets">
-              <li>Creative collective, community events, and open-source culture</li>
-              <li>Enterprise software consulting, team leadership, technical support</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Se&ntilde;or Frog&rsquo;s at International</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Customer Service</div>
-            <div class="timeline-dates">Mar 2014 &mdash; Nov 2016</div>
-            <ul class="timeline-bullets">
-              <li>Shuttle driver &amp; local guide for 10&ndash;15 international guests daily</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Clarion Hotel Universal</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Front Desk Manager</div>
-            <div class="timeline-dates">Aug 2010 &mdash; Sep 2013</div>
-            <ul class="timeline-bullets">
-              <li>Hotel management, guest relations, IT hardware support &amp; technical troubleshooting</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Best Western Lake Buena Vista</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Valet &mdash; Part-time</div>
-            <div class="timeline-dates">Jul 2007 &mdash; Aug 2008</div>
-            <ul class="timeline-bullets">
-              <li>Guest services, sales, multilingual customer relations (EN / PT / ES)</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Baymont Inn &amp; Suites Orlando</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Front Desk Receptionist &mdash; Part-time</div>
-            <div class="timeline-dates">Aug 2006 &mdash; Feb 2007</div>
-            <ul class="timeline-bullets">
-              <li>Reservations, guest services, technical support, multilingual communications</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Wyndham Orlando Resort International Drive</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Concierge &mdash; Part-time</div>
-            <div class="timeline-dates">Jan 2006 &mdash; Jul 2006</div>
-            <ul class="timeline-bullets">
-              <li>Guest experience, local knowledge, multilingual concierge services</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Orlando Marriott</span>
-              <span class="timeline-location">Orlando, FL &middot; On-site</span>
-            </div>
-            <div class="timeline-role">Bellperson &mdash; Seasonal</div>
-            <div class="timeline-dates">Jun 2005 &mdash; Aug 2005</div>
-            <ul class="timeline-bullets">
-              <li>Hospitality, guest services, trilingual communications</li>
-            </ul>
-          </li>
-
-        </ul>
-      </div>
-
-      <!-- Education -->
-      <div class="resume-block">
-        <h3 class="resume-block-title">// education</h3>
-        <ul class="timeline">
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Purdue Global</span>
-            </div>
-            <div class="timeline-role">Associate of Science &mdash; Information Technology</div>
-            <div class="timeline-dates">Jun 2023 &mdash; Jun 2025</div>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Pathlight Kitchen</span>
-            </div>
-            <div class="timeline-role">Culinary Arts Certificate &mdash; Chef Training</div>
-            <div class="timeline-dates">Jan 2018 &mdash; Dec 2019</div>
-            <ul class="timeline-bullets">
-              <li>Teacher Assistant &middot; Community Volunteer</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">The Iron Yard</span>
-              <span class="timeline-location">Orlando, FL</span>
-            </div>
-            <div class="timeline-role">Back-End Development &mdash; Engineering Degree</div>
-            <div class="timeline-dates">Jan 2017 &mdash; Jul 2017</div>
-            <ul class="timeline-bullets">
-              <li>Community Advocate &middot; Interpreter</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Dr. Phillips High School</span>
-              <span class="timeline-location">Orlando, FL</span>
-            </div>
-            <div class="timeline-role">High School Diploma &mdash; General Studies</div>
-            <div class="timeline-dates">Jan 2004 &mdash; Jun 2006</div>
-            <ul class="timeline-bullets">
-              <li>Young Democrats &middot; Battle of the Bands &middot; Academic Excellence Honor Roll &middot; Panther Honor Roll</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Fatec Sebrae</span>
-            </div>
-            <div class="timeline-role">Hardware</div>
-            <div class="timeline-dates">2002</div>
-          </li>
-
-        </ul>
-      </div>
-
-      <!-- Certifications -->
-      <div class="resume-block">
-        <h3 class="resume-block-title">// certifications</h3>
-        <ul class="timeline">
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">freeCodeCamp</span>
-            </div>
-            <div class="timeline-role">Front End Development Libraries</div>
-            <div class="timeline-dates">Issued Jan 2023</div>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">freeCodeCamp</span>
-            </div>
-            <div class="timeline-role">Responsive Web Design</div>
-            <div class="timeline-dates">Issued Jan 2023</div>
-          </li>
-
-        </ul>
-      </div>
-
-      <!-- Languages & Skills -->
-      <div class="resume-block">
-        <h3 class="resume-block-title">// languages &amp; skills</h3>
-        <ul class="skills-list">
-          <li>English &mdash; fluent</li>
-          <li>Portuguese &mdash; native</li>
-          <li>Spanish &mdash; fluent</li>
-          <li>JavaScript</li>
-          <li>AngularJS</li>
-          <li>Back-End Engineering</li>
-          <li>IT Support &amp; Hardware</li>
-          <li>Technical Support</li>
-          <li>Enterprise Software</li>
-          <li>Product Security</li>
-          <li>Legal Technology</li>
-          <li>Case Management</li>
-          <li>Marketing &amp; CX</li>
-          <li>Hotel Management</li>
-          <li>Team Leadership</li>
-          <li>Sustainability Analysis</li>
-          <li>Community Organizing</li>
-          <li>Photography</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── Volunteer / Links / Ideas ─────────────────────────────── -->
-  <section id="volunteer-links-ideas">
-    <div class="container">
-      <p class="section-label">module_05</p>
-      <h2 class="section-heading">Volunteer / Links / Ideas</h2>
-
-      <div class="resume-block">
-        <h3 class="resume-block-title">// volunteer_work</h3>
-        <ul class="timeline">
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">
-                <a href="https://www.bachfestivalflorida.org" target="_blank" rel="noopener">Bach Festival Society of Winter Park</a>
-              </span>
-              <span class="timeline-location">Arts &amp; Culture</span>
-            </div>
-            <div class="timeline-role">Musician</div>
-            <div class="timeline-dates">Aug 2017 &mdash; Present</div>
-            <ul class="timeline-bullets">
-              <li>Performing and regularly rehearsing as first Bass</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">
-                <a href="https://www.bachfestivalflorida.org" target="_blank" rel="noopener">Bach Festival Society of Winter Park</a>
-              </span>
-              <span class="timeline-location">Arts &amp; Culture</span>
-            </div>
-            <div class="timeline-role">Usher</div>
-            <div class="timeline-dates">Apr 2020 &mdash; Present</div>
-            <ul class="timeline-bullets">
-              <li>Welcoming guests and guiding them to their seats with professional, state-of-the-art service</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Southeast Vipassana Center, Dhamma Patapa</span>
-              <span class="timeline-location">Health</span>
-            </div>
-            <div class="timeline-role">Server</div>
-            <div class="timeline-dates">Apr 2022 &mdash; 10-day course</div>
-            <ul class="timeline-bullets">
-              <li>Kitchen volunteer: daily task leadership, waste sorting, recycling and compost logistics</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">
-                <a href="https://www.btnwildlife.org" target="_blank" rel="noopener">Back to Nature Wildlife Refuge</a>
-              </span>
-              <span class="timeline-location">Animal Welfare</span>
-            </div>
-            <div class="timeline-role">Clinic Assistant</div>
-            <div class="timeline-dates">Apr 2021 &mdash; Sep 2021</div>
-            <ul class="timeline-bullets">
-              <li>Property maintenance, animal rescue intake, resident daily nutrition, donation intake and pick-up</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">Pathlight HOME</span>
-              <span class="timeline-location">Social Services</span>
-            </div>
-            <div class="timeline-role">Teacher Assistant</div>
-            <div class="timeline-dates">Jan 2018 &mdash; Jul 2019</div>
-            <ul class="timeline-bullets">
-              <li>Class setup, student coordination, hands-on activities, safe environment maintenance</li>
-            </ul>
-          </li>
-
-          <li class="timeline-entry">
-            <div class="timeline-header">
-              <span class="timeline-company">
-                <a href="https://timucua.com" target="_blank" rel="noopener">Timucua Center for the Arts</a>
-              </span>
-              <span class="timeline-location">Arts &amp; Culture</span>
-            </div>
-            <div class="timeline-role">Volunteer</div>
-            <div class="timeline-dates">Ongoing &mdash; <a href="https://timucua.com/volunteer/" target="_blank" rel="noopener">volunteer here &rarr;</a></div>
-          </li>
-
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── Absolutely Plausible ──────────────────────────────────── -->
-  <section id="absolutely-plausible">
-    <div class="container">
-      <p class="section-label">module_06</p>
-      <h2 class="section-heading">Absolutely Plausible</h2>
-      <div class="ap-layout">
-        <div>
-          <img
-            src="assets/images/absolutely-plausible-logo.jpg"
-            alt="Absolutely Plausible logo"
-            class="ap-logo"
-          />
+      <!-- ── Panel: Opensource ───────────────────────────────── -->
+      <div class="gh-panel" id="opensource" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_01</span>
+          <h2 class="gh-panel-title">Opensource</h2>
         </div>
-        <div>
-          <h3 class="ap-title">Absolutely Plausible</h3>
-          <p class="ap-est">Est. 2008 &mdash; friends and fun</p>
-          <p class="section-body">
-            Collaborative creative projects, community events, and open-source culture.
-          </p>
-          <ul class="ap-collabs">
-            <li class="ap-collab-entry">
-              <span class="ap-collab-date">2017 / Mar</span>
-              Colours Beats Vibes
+        <p class="gh-panel-body">
+          A place to promote open-source, and all of the million-infinite solutions
+          that the internet has provided to us for FREE!
+        </p>
+        <ul class="opensource-links">
+          <li><a href="https://remix-project.org" target="_blank" rel="noopener">Remix IDE &mdash; Ethereum smart contract development</a></li>
+          <li><a href="https://web3js.readthedocs.io/en/1.0/" target="_blank" rel="noopener">Web3.js &mdash; Ethereum JavaScript API</a></li>
+          <li><a href="https://docs.ethers.io/" target="_blank" rel="noopener">Ethers.js &mdash; Ethereum library and wallet</a></li>
+          <li><a href="https://www.earthdatascience.org" target="_blank" rel="noopener">Earth Data Science &mdash; open learning resources</a></li>
+        </ul>
+        <img
+          src="assets/images/art-is-local.png"
+          alt="Art is LOCAL"
+          class="gh-panel-image"
+        />
+        <p class="cc-notice">
+          Art is LOCAL &copy; 2017 by robot fant&ocirc;me &mdash;
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+        </p>
+      </div>
+
+      <!-- ── Panel: Mix-Tape ─────────────────────────────────── -->
+      <div class="gh-panel" id="mixtape" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_02</span>
+          <h2 class="gh-panel-title">Mix-Tape</h2>
+        </div>
+        <p class="gh-panel-body">Music and people that we love and love to share.</p>
+
+        <div class="mixtape-featured">
+          <h3 class="mixtape-featured-title">Robot Fant&ocirc;me</h3>
+          <p class="mixtape-featured-desc">Indie / Punk / Rock &mdash; stolenghost recordings</p>
+          <a href="https://distrokid.com/hyperfollow/robotfantme/stolenghost-recordings" target="_blank" rel="noopener">
+            Listen on DistroKid / stolenghost-recordings &rarr;
+          </a>
+        </div>
+
+        <img
+          src="assets/images/abstract-ceu-azul.jpg"
+          alt="Céu Azul — abstract painting"
+          class="mixtape-image"
+        />
+        <p class="cc-notice">
+          C&eacute;u Azul &copy; 2017 by robot fant&ocirc;me &mdash;
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+        </p>
+
+        <ul class="mixtape-artists">
+          <li class="artist-entry">
+            <p class="artist-name">Niko Is</p>
+            <ul class="artist-links">
+              <li><a href="https://kweliclub.com/products/niko-is-juni-ali-the-adventures-of-the-young-viejos-lp" target="_blank" rel="noopener">The Adventures of the Young Viejos LP</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">Jayo</p>
+            <ul class="artist-links">
+              <li><a href="https://jayomusic.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">L&rsquo;ocean</p>
+            <ul class="artist-links">
+              <li><a href="https://linktr.ee/loceandance" target="_blank" rel="noopener">Linktree</a></li>
+              <li><a href="https://www.instagram.com/loceandance/" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">Laghima</p>
+            <ul class="artist-links">
+              <li><a href="https://beacons.ai/laghima" target="_blank" rel="noopener">Beacons</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">Henry Daher</p>
+            <ul class="artist-links">
+              <li><a href="https://www.henrydaher.com" target="_blank" rel="noopener">henrydaher.com</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">Thanks Joey</p>
+            <ul class="artist-links">
+              <li><a href="https://linktr.ee/itsColours" target="_blank" rel="noopener">Linktree</a></li>
+              <li><a href="https://www.instagram.com/thanksjoey/" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+          </li>
+          <li class="artist-entry">
+            <p class="artist-name">C. Terry</p>
+            <ul class="artist-links">
+              <li><a href="https://music.apple.com/us/album/loosen-the-screws/1646501091?i=1646501092" target="_blank" rel="noopener">Loosen the Screws &mdash; Apple Music</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── Panel: Sustainability ───────────────────────────── -->
+      <div class="gh-panel" id="sustainability" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_03</span>
+          <h2 class="gh-panel-title">Sustainability</h2>
+        </div>
+        <p class="gh-panel-body">
+          Currently working with a friend helping to build and grow their business,
+          from the ground up!
+        </p>
+        <ul class="sustainability-links">
+          <li><a href="https://image.info.globalalumni.org/lib/fe28117371640475721276/m/1/0ea0cadf-f2d9-42fe-9d8d-42302d2a7b3f.pdf" target="_blank" rel="noopener">MIT Sustainability Course &rarr;</a></li>
+          <li><a href="https://sumauma.com" target="_blank" rel="noopener">Suma&uacute;ma &mdash; Climate journalism from the Amazon &rarr;</a></li>
+        </ul>
+        <img
+          src="assets/images/collage-challenges.jpg"
+          alt="Collage — Challenges"
+          class="gh-panel-image"
+        />
+        <p class="cc-notice">
+          Challenges &copy; 2017 by robot fant&ocirc;me &mdash;
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+        </p>
+      </div>
+
+      <!-- ── Panel: About ────────────────────────────────────── -->
+      <div class="gh-panel" id="about" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_04</span>
+          <h2 class="gh-panel-title">About</h2>
+        </div>
+
+        <img
+          src="assets/images/wags-bridge.jpg"
+          alt="Luiz Wagner Mestrinho"
+          class="gh-panel-image"
+        />
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// work_history</h3>
+          <ul class="timeline">
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">AdventHealth</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Marketing Consumer Experience Specialist</div>
+              <div class="timeline-dates">Mar 2023 &mdash; Oct 2023</div>
+              <ul class="timeline-bullets">
+                <li>Trilingual patient-facing communications (EN / PT / ES)</li>
+                <li>Enterprise software, receptionist operations, team coordination</li>
+              </ul>
             </li>
-            <li class="ap-collab-entry">
-              <span class="ap-collab-date">2018 / Oct</span>
-              Retrospect Now
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">City Catt</span>
+                <span class="timeline-location">United States &middot; Remote</span>
+              </div>
+              <div class="timeline-role">Developer Advocate &mdash; Internship</div>
+              <div class="timeline-dates">Jan 2021 &mdash; Present</div>
+              <ul class="timeline-bullets">
+                <li>JavaScript, AngularJS, IT hardware support and technical documentation</li>
+              </ul>
             </li>
-            <li class="ap-collab-entry">
-              <span class="ap-collab-date">2018 / Jan</span>
-              Zora Neale Hurston Festival
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Premier Events</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Bartender &mdash; Seasonal</div>
+              <div class="timeline-dates">Jan 2021 &mdash; Present</div>
+              <ul class="timeline-bullets">
+                <li>Event service, public-facing hospitality, multilingual customer relations</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Law Office of John Jordan</span>
+                <span class="timeline-location">Orlando, FL &middot; Hybrid</span>
+              </div>
+              <div class="timeline-role">IT Support Specialist</div>
+              <div class="timeline-dates">Mar 2020 &mdash; Jul 2022</div>
+              <ul class="timeline-bullets">
+                <li>IT service management, hardware troubleshooting, case management systems</li>
+                <li>Court appearances in-person and remote; legal document management &amp; family law support</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Absolutely Plausible 2</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Founder &mdash; Self-Employed</div>
+              <div class="timeline-dates">Jul 2014 &mdash; Present</div>
+              <ul class="timeline-bullets">
+                <li>Creative collective, community events, and open-source culture</li>
+                <li>Enterprise software consulting, team leadership, technical support</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Se&ntilde;or Frog&rsquo;s at International</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Customer Service</div>
+              <div class="timeline-dates">Mar 2014 &mdash; Nov 2016</div>
+              <ul class="timeline-bullets">
+                <li>Shuttle driver &amp; local guide for 10&ndash;15 international guests daily</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Clarion Hotel Universal</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Front Desk Manager</div>
+              <div class="timeline-dates">Aug 2010 &mdash; Sep 2013</div>
+              <ul class="timeline-bullets">
+                <li>Hotel management, guest relations, IT hardware support &amp; technical troubleshooting</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Best Western Lake Buena Vista</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Valet &mdash; Part-time</div>
+              <div class="timeline-dates">Jul 2007 &mdash; Aug 2008</div>
+              <ul class="timeline-bullets">
+                <li>Guest services, sales, multilingual customer relations (EN / PT / ES)</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Baymont Inn &amp; Suites Orlando</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Front Desk Receptionist &mdash; Part-time</div>
+              <div class="timeline-dates">Aug 2006 &mdash; Feb 2007</div>
+              <ul class="timeline-bullets">
+                <li>Reservations, guest services, technical support, multilingual communications</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Wyndham Orlando Resort International Drive</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Concierge &mdash; Part-time</div>
+              <div class="timeline-dates">Jan 2006 &mdash; Jul 2006</div>
+              <ul class="timeline-bullets">
+                <li>Guest experience, local knowledge, multilingual concierge services</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Orlando Marriott</span>
+                <span class="timeline-location">Orlando, FL &middot; On-site</span>
+              </div>
+              <div class="timeline-role">Bellperson &mdash; Seasonal</div>
+              <div class="timeline-dates">Jun 2005 &mdash; Aug 2005</div>
+              <ul class="timeline-bullets">
+                <li>Hospitality, guest services, trilingual communications</li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// education</h3>
+          <ul class="timeline">
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Purdue Global</span>
+              </div>
+              <div class="timeline-role">Associate of Science &mdash; Information Technology</div>
+              <div class="timeline-dates">Jun 2023 &mdash; Jun 2025</div>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Pathlight Kitchen</span>
+              </div>
+              <div class="timeline-role">Culinary Arts Certificate &mdash; Chef Training</div>
+              <div class="timeline-dates">Jan 2018 &mdash; Dec 2019</div>
+              <ul class="timeline-bullets">
+                <li>Teacher Assistant &middot; Community Volunteer</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">The Iron Yard</span>
+                <span class="timeline-location">Orlando, FL</span>
+              </div>
+              <div class="timeline-role">Back-End Development &mdash; Engineering Degree</div>
+              <div class="timeline-dates">Jan 2017 &mdash; Jul 2017</div>
+              <ul class="timeline-bullets">
+                <li>Community Advocate &middot; Interpreter</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Dr. Phillips High School</span>
+                <span class="timeline-location">Orlando, FL</span>
+              </div>
+              <div class="timeline-role">High School Diploma &mdash; General Studies</div>
+              <div class="timeline-dates">Jan 2004 &mdash; Jun 2006</div>
+              <ul class="timeline-bullets">
+                <li>Young Democrats &middot; Battle of the Bands &middot; Academic Excellence Honor Roll &middot; Panther Honor Roll</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Fatec Sebrae</span>
+              </div>
+              <div class="timeline-role">Hardware</div>
+              <div class="timeline-dates">2002</div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// certifications</h3>
+          <ul class="timeline">
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">freeCodeCamp</span>
+              </div>
+              <div class="timeline-role">Front End Development Libraries</div>
+              <div class="timeline-dates">Issued Jan 2023</div>
+            </li>
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">freeCodeCamp</span>
+              </div>
+              <div class="timeline-role">Responsive Web Design</div>
+              <div class="timeline-dates">Issued Jan 2023</div>
             </li>
           </ul>
         </div>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// languages &amp; skills</h3>
+          <ul class="skills-list">
+            <li>English &mdash; fluent</li>
+            <li>Portuguese &mdash; native</li>
+            <li>Spanish &mdash; fluent</li>
+            <li>JavaScript</li>
+            <li>AngularJS</li>
+            <li>Back-End Engineering</li>
+            <li>IT Support &amp; Hardware</li>
+            <li>Technical Support</li>
+            <li>Enterprise Software</li>
+            <li>Product Security</li>
+            <li>Legal Technology</li>
+            <li>Case Management</li>
+            <li>Marketing &amp; CX</li>
+            <li>Hotel Management</li>
+            <li>Team Leadership</li>
+            <li>Sustainability Analysis</li>
+            <li>Community Organizing</li>
+            <li>Photography</li>
+          </ul>
+        </div>
+
       </div>
-    </div>
-  </section>
+
+      <!-- ── Panel: Volunteer ────────────────────────────────── -->
+      <div class="gh-panel" id="volunteer" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_05</span>
+          <h2 class="gh-panel-title">Volunteer / Links / Ideas</h2>
+        </div>
+
+        <img
+          src="assets/images/wags-hackathon.jpg"
+          alt="Luiz Wagner at community event"
+          class="gh-panel-image"
+        />
+
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// volunteer_work</h3>
+          <ul class="timeline">
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">
+                  <a href="https://www.bachfestivalflorida.org" target="_blank" rel="noopener">Bach Festival Society of Winter Park</a>
+                </span>
+                <span class="timeline-location">Arts &amp; Culture</span>
+              </div>
+              <div class="timeline-role">Musician</div>
+              <div class="timeline-dates">Aug 2017 &mdash; Present</div>
+              <ul class="timeline-bullets">
+                <li>Performing and regularly rehearsing as first Bass</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">
+                  <a href="https://www.bachfestivalflorida.org" target="_blank" rel="noopener">Bach Festival Society of Winter Park</a>
+                </span>
+                <span class="timeline-location">Arts &amp; Culture</span>
+              </div>
+              <div class="timeline-role">Usher</div>
+              <div class="timeline-dates">Apr 2020 &mdash; Present</div>
+              <ul class="timeline-bullets">
+                <li>Welcoming guests and guiding them to their seats with professional, state-of-the-art service</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Southeast Vipassana Center, Dhamma Patapa</span>
+                <span class="timeline-location">Health</span>
+              </div>
+              <div class="timeline-role">Server</div>
+              <div class="timeline-dates">Apr 2022 &mdash; 10-day course</div>
+              <ul class="timeline-bullets">
+                <li>Kitchen volunteer: daily task leadership, waste sorting, recycling and compost logistics</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">
+                  <a href="https://www.btnwildlife.org" target="_blank" rel="noopener">Back to Nature Wildlife Refuge</a>
+                </span>
+                <span class="timeline-location">Animal Welfare</span>
+              </div>
+              <div class="timeline-role">Clinic Assistant</div>
+              <div class="timeline-dates">Apr 2021 &mdash; Sep 2021</div>
+              <ul class="timeline-bullets">
+                <li>Property maintenance, animal rescue intake, resident daily nutrition, donation intake and pick-up</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">Pathlight HOME</span>
+                <span class="timeline-location">Social Services</span>
+              </div>
+              <div class="timeline-role">Teacher Assistant</div>
+              <div class="timeline-dates">Jan 2018 &mdash; Jul 2019</div>
+              <ul class="timeline-bullets">
+                <li>Class setup, student coordination, hands-on activities, safe environment maintenance</li>
+              </ul>
+            </li>
+
+            <li class="timeline-entry">
+              <div class="timeline-header">
+                <span class="timeline-company">
+                  <a href="https://timucua.com" target="_blank" rel="noopener">Timucua Center for the Arts</a>
+                </span>
+                <span class="timeline-location">Arts &amp; Culture</span>
+              </div>
+              <div class="timeline-role">Volunteer</div>
+              <div class="timeline-dates">Ongoing &mdash; <a href="https://timucua.com/volunteer/" target="_blank" rel="noopener">volunteer here &rarr;</a></div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- ── Panel: Absolutely Plausible ────────────────────── -->
+      <div class="gh-panel" id="ap" role="tabpanel">
+        <div class="gh-panel-header">
+          <span class="gh-panel-module">module_06</span>
+          <h2 class="gh-panel-title">Absolutely Plausible</h2>
+        </div>
+        <div class="ap-layout">
+          <div>
+            <img
+              src="assets/images/ap-logo.png"
+              alt="Absolutely Plausible logo"
+              class="ap-logo"
+            />
+          </div>
+          <div>
+            <h3 class="ap-title">Absolutely Plausible</h3>
+            <p class="ap-est">Est. 2008 &mdash; friends and fun</p>
+            <p class="gh-panel-body">
+              Collaborative creative projects, community events, and open-source culture.
+            </p>
+            <ul class="ap-collabs">
+              <li class="ap-collab-entry">
+                <span class="ap-collab-date">2017 / Mar</span>
+                Colours Beats Vibes
+              </li>
+              <li class="ap-collab-entry">
+                <span class="ap-collab-date">2018 / Oct</span>
+                Retrospect Now
+              </li>
+              <li class="ap-collab-entry">
+                <span class="ap-collab-date">2018 / Jan</span>
+                Zora Neale Hurston Festival
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
 
   <!-- ── Footer ────────────────────────────────────────────────── -->
   <footer>
-    <div class="container">
+    <div class="footer-inner">
       <p class="footer-license">
-        Website Design &copy; 2026 by robot fant&ocirc;me is licensed under
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Attribution-NonCommercial 4.0 International</a>
+        Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
       </p>
+      <p class="footer-version">v3.0.0 beta</p>
     </div>
   </footer>
 
