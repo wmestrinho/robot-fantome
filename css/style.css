@@ -152,6 +152,11 @@ a:hover { color: #e8874a; }
   background: #d8d5d0;
   text-shadow: none;
 }
+.gh-nav-links a.active {
+  color: var(--color-orange);
+  background: #ede9e3;
+  text-shadow: var(--glow-orange);
+}
 
 .gh-nav-toggle {
   display: none;
@@ -372,38 +377,6 @@ a:hover { color: #e8874a; }
   min-width: 0;
 }
 
-/* ── Tabs ──────────────────────────────────────────────────── */
-.gh-tabs {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  border-bottom: 1px solid var(--page-border);
-  overflow-x: auto;
-  scrollbar-width: none;
-  margin-bottom: 1.5rem;
-}
-.gh-tabs::-webkit-scrollbar { display: none; }
-
-.gh-tab {
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--page-muted);
-  font-family: var(--font);
-  font-size: 0.82rem;
-  letter-spacing: 0.05em;
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s;
-  margin-bottom: -1px;
-}
-.gh-tab:hover { color: var(--page-text); }
-.gh-tab.active {
-  color: var(--page-text);
-  border-bottom-color: var(--color-orange);
-  font-weight: normal;
-}
 
 /* ── Panels ────────────────────────────────────────────────── */
 .gh-panel { display: none; }
@@ -1015,6 +988,4 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .gh-tabs { gap: 0; }
-  .gh-tab { padding: 0.5rem 0.6rem; font-size: 0.75rem; }
 }
