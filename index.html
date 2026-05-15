@@ -23,6 +23,7 @@
 
       <nav class="gh-nav-links" aria-label="Site navigation">
         <a href="#" data-tab="overview" class="active">overview</a>
+        <a href="#" data-tab="gallery">gallery</a>
         <a href="#" data-tab="opensource">opensource</a>
         <a href="#" data-tab="mixtape">mix-tape</a>
         <a href="#" data-tab="sustainability">sustainability</a>
@@ -163,12 +164,17 @@
         </div>
         <div class="gh-pinned-grid">
 
-          <button class="gh-pinned-card" data-tab="opensource">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_01</span>
+          <button class="gh-pinned-card" data-tab="gallery">
+            <h3 class="gh-pinned-name">Gallery</h3>
+            <p class="gh-pinned-desc">Artwork, projects, and events &mdash; our creative work.</p>
+            <div class="gh-pinned-footer">
+              <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#5cb0ad"></span>Visual</span>
             </div>
+          </button>
+
+          <button class="gh-pinned-card" data-tab="opensource">
             <h3 class="gh-pinned-name">Opensource</h3>
-            <p class="gh-pinned-desc">Promoting open-source and all the free solutions the internet provides.</p>
+            <p class="gh-pinned-desc">Free tools and open-source resources worth sharing.</p>
             <div class="gh-pinned-footer">
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#3f7d9c"></span>HTML</span>
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#4b5fa8"></span>CSS</span>
@@ -176,20 +182,14 @@
           </button>
 
           <button class="gh-pinned-card" data-tab="mixtape">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_02</span>
-            </div>
             <h3 class="gh-pinned-name">Mix-Tape</h3>
-            <p class="gh-pinned-desc">Music and people we love and love to share. Indie, Punk, Rock.</p>
+            <p class="gh-pinned-desc">Indie, punk, and rock &mdash; artists we love.</p>
             <div class="gh-pinned-footer">
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#3f7d9c"></span>Music</span>
             </div>
           </button>
 
           <button class="gh-pinned-card" data-tab="sustainability">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_03</span>
-            </div>
             <h3 class="gh-pinned-name">Sustainability</h3>
             <p class="gh-pinned-desc">Climate justice, community business building, and Amazon journalism.</p>
             <div class="gh-pinned-footer">
@@ -198,11 +198,8 @@
           </button>
 
           <button class="gh-pinned-card" data-tab="about">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_04</span>
-            </div>
             <h3 class="gh-pinned-name">About</h3>
-            <p class="gh-pinned-desc">20 years of experience. Tech, legal, hospitality, and the arts.</p>
+            <p class="gh-pinned-desc">Two decades of work, education, and skills.</p>
             <div class="gh-pinned-footer">
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#3f7d9c"></span>EN</span>
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#4b5fa8"></span>PT</span>
@@ -211,9 +208,6 @@
           </button>
 
           <button class="gh-pinned-card" data-tab="volunteer">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_05</span>
-            </div>
             <h3 class="gh-pinned-name">Volunteer</h3>
             <p class="gh-pinned-desc">Bach Festival, wildlife rescue, Vipassana, community arts, and more.</p>
             <div class="gh-pinned-footer">
@@ -222,11 +216,8 @@
           </button>
 
           <button class="gh-pinned-card" data-tab="ap">
-            <div class="gh-pinned-top">
-              <span class="gh-pinned-module">module_06</span>
-            </div>
             <h3 class="gh-pinned-name">Absolutely Plausible</h3>
-            <p class="gh-pinned-desc">Est. 2008 &mdash; collaborative projects, community events, open-source culture.</p>
+            <p class="gh-pinned-desc">Collaborative projects, community events, and open-source culture.</p>
             <div class="gh-pinned-footer">
               <span class="gh-lang-item"><span class="gh-lang-dot" style="background:#4b5fa8"></span>Creative</span>
             </div>
@@ -235,10 +226,71 @@
         </div>
       </div>
 
+      <!-- ── Panel: Gallery ──────────────────────────────────── -->
+      <div class="gh-panel" id="gallery" role="tabpanel">
+        <div class="gh-panel-header">
+          <h2 class="gh-panel-title">Gallery</h2>
+        </div>
+        <p class="gh-panel-body">A collection of our creative work &mdash; artwork, projects, and events.</p>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// artwork</h3>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="assets/images/community-letter-collage.jpg" alt="Community Letter Collage" class="gallery-image" />
+              <figcaption class="gallery-caption">
+                Community Letter Collage &copy; 2017 by robot fant&ocirc;me &mdash;
+                <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/images/art-is-local.png" alt="Art is LOCAL" class="gallery-image" />
+              <figcaption class="gallery-caption">
+                Art is LOCAL &copy; 2017 by robot fant&ocirc;me &mdash;
+                <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/images/abstract-ceu-azul.jpg" alt="Céu Azul — abstract painting" class="gallery-image" />
+              <figcaption class="gallery-caption">
+                C&eacute;u Azul &copy; 2017 by robot fant&ocirc;me &mdash;
+                <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/images/collage-challenges.jpg" alt="Collage — Challenges" class="gallery-image" />
+              <figcaption class="gallery-caption">
+                Challenges &copy; 2017 by robot fant&ocirc;me &mdash;
+                <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// projects</h3>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="assets/images/pallet-shoe-cubby.jpg" alt="Shoe cubby built from a reclaimed wood pallet" class="gallery-image" />
+              <figcaption class="gallery-caption">Pallet shoe cubby &mdash; reclaimed-wood build</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h3 class="resume-block-title">// events</h3>
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="assets/images/wags-hackathon.jpg" alt="Luiz Wagner Mestrinho at a community hackathon" class="gallery-image" />
+              <figcaption class="gallery-caption">Community hackathon &mdash; Absolutely Plausible</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
       <!-- ── Panel: Opensource ───────────────────────────────── -->
       <div class="gh-panel" id="opensource" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_01</span>
           <h2 class="gh-panel-title">Opensource</h2>
         </div>
         <p class="gh-panel-body">
@@ -251,21 +303,11 @@
           <li><a href="https://docs.ethers.io/" target="_blank" rel="noopener">Ethers.js &mdash; Ethereum library and wallet</a></li>
           <li><a href="https://www.earthdatascience.org" target="_blank" rel="noopener">Earth Data Science &mdash; open learning resources</a></li>
         </ul>
-        <img
-          src="assets/images/art-is-local.png"
-          alt="Art is LOCAL"
-          class="gh-panel-image"
-        />
-        <p class="cc-notice">
-          Art is LOCAL &copy; 2017 by robot fant&ocirc;me &mdash;
-          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-        </p>
       </div>
 
       <!-- ── Panel: Mix-Tape ─────────────────────────────────── -->
       <div class="gh-panel" id="mixtape" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_02</span>
           <h2 class="gh-panel-title">Mix-Tape</h2>
         </div>
         <p class="gh-panel-body">Music and people that we love and love to share.</p>
@@ -277,16 +319,6 @@
             Listen on DistroKid / stolenghost-recordings &rarr;
           </a>
         </div>
-
-        <img
-          src="assets/images/abstract-ceu-azul.jpg"
-          alt="Céu Azul — abstract painting"
-          class="mixtape-image"
-        />
-        <p class="cc-notice">
-          C&eacute;u Azul &copy; 2017 by robot fant&ocirc;me &mdash;
-          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-        </p>
 
         <ul class="mixtape-artists">
           <li class="artist-entry">
@@ -339,7 +371,6 @@
       <!-- ── Panel: Sustainability ───────────────────────────── -->
       <div class="gh-panel" id="sustainability" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_03</span>
           <h2 class="gh-panel-title">Sustainability</h2>
         </div>
         <p class="gh-panel-body">
@@ -350,27 +381,17 @@
           <li><a href="https://image.info.globalalumni.org/lib/fe28117371640475721276/m/1/0ea0cadf-f2d9-42fe-9d8d-42302d2a7b3f.pdf" target="_blank" rel="noopener">MIT Sustainability Course &rarr;</a></li>
           <li><a href="https://sumauma.com" target="_blank" rel="noopener">Suma&uacute;ma &mdash; Climate journalism from the Amazon &rarr;</a></li>
         </ul>
-        <img
-          src="assets/images/collage-challenges.jpg"
-          alt="Collage — Challenges"
-          class="gh-panel-image"
-        />
-        <p class="cc-notice">
-          Challenges &copy; 2017 by robot fant&ocirc;me &mdash;
-          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-        </p>
       </div>
 
       <!-- ── Panel: About ────────────────────────────────────── -->
       <div class="gh-panel" id="about" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_04</span>
           <h2 class="gh-panel-title">About</h2>
         </div>
 
         <img
-          src="assets/images/wags-bridge.jpg"
-          alt="Luiz Wagner Mestrinho"
+          src="assets/images/wags-mural.jpg"
+          alt="Luiz Wagner Mestrinho at a community event"
           class="gh-panel-image"
         />
 
@@ -633,16 +654,8 @@
       <!-- ── Panel: Volunteer ────────────────────────────────── -->
       <div class="gh-panel" id="volunteer" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_05</span>
-          <h2 class="gh-panel-title">Volunteer / Links / Ideas</h2>
+          <h2 class="gh-panel-title">Volunteer</h2>
         </div>
-
-        <img
-          src="assets/images/wags-hackathon.jpg"
-          alt="Luiz Wagner at community event"
-          class="gh-panel-image"
-        />
-
 
         <div class="resume-block">
           <h3 class="resume-block-title">// volunteer_work</h3>
@@ -732,7 +745,6 @@
       <!-- ── Panel: Absolutely Plausible ────────────────────── -->
       <div class="gh-panel" id="ap" role="tabpanel">
         <div class="gh-panel-header">
-          <span class="gh-panel-module">module_06</span>
           <h2 class="gh-panel-title">Absolutely Plausible</h2>
         </div>
         <div class="ap-layout">
@@ -744,7 +756,6 @@
             />
           </div>
           <div>
-            <h3 class="ap-title">Absolutely Plausible</h3>
             <p class="ap-est">Creative collective roots: 2008 &mdash; Formally incorporated: July 2014</p>
             <p class="gh-panel-body">
               The business entity and creative umbrella. Web development, AI tooling, freelance consulting,
@@ -778,7 +789,7 @@
         Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
       </p>
-      <p class="footer-version">v3.1.0 beta</p>
+      <p class="footer-version">v3.2.0 beta</p>
     </div>
   </footer>
 

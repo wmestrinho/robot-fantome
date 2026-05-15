@@ -24,7 +24,7 @@ Single-page site with one file per concern:
 
 | File | Role |
 |---|---|
-| `index.html` | All content and structure (single page, 7 tabs) |
+| `index.html` | All content and structure (single page, 8 tabs) |
 | `css/style.css` | All styles — GitHub profile layout, cool watercolour cyberpunk |
 | `js/main.js` | Tab switching, pinned card clicks, mobile nav toggle, image fade-in |
 | `assets/images/` | Photos and artwork (CC BY-NC 4.0 licensed) |
@@ -44,9 +44,9 @@ Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
 - **CRT scanlines overlay:** `body::before` pseudo-element, z-index 9999
 - **Glow effects:** `--glow-accent` and `--glow-mid` CSS vars used for `text-shadow` / `box-shadow`
 - **Motion:** glitch/flicker are occasional, subtle bursts; `prefers-reduced-motion` disables all motion
-- **Card shadow:** `--card-shadow` for white cards lifting off warm bg
+- **Card shadow:** `--card-shadow` for white cards lifting off the cool paper bg
 
-Section structure in HTML uses `module_01` through `module_06` labels, rendered as tabs via `.gh-tab` / `.gh-panel`.
+Content is split into tabs (`.gh-panel`), switched by the top nav and Overview pinned cards: overview, gallery, opensource, mix-tape, sustainability, about, volunteer, absolutely plausible. The Gallery tab groups visual work into Artwork / Projects / Events sections.
 
 ## Constraints
 
