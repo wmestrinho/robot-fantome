@@ -10,7 +10,7 @@ Static portfolio site for [robotfantome.com](https://robotfantome.com) — rebui
 
 ## Deployment
 
-Pushes to `main` auto-deploy via **Cloudflare Pages** (connected directly to this GitHub repo). No build step — the repo root is served directly. No GitHub Actions workflow needed.
+Pushes to `main` auto-deploy via **GitHub Pages** (Pages source = `main` branch, root path). No build step — the repo root is served as-is. The custom domain `robotfantome.com` is set by the root `CNAME` file; Cloudflare sits in front for DNS/CDN. The `.nojekyll` file keeps GitHub Pages from running Jekyll.
 
 To preview locally, just open `index.html` in a browser, or use any static file server:
 
