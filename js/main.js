@@ -25,6 +25,7 @@
     panels.forEach(function (p) {
       p.classList.toggle('active', p.id === target);
     });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   // ── Pinned cards → switch to their tab ─────────────────────
@@ -55,6 +56,15 @@
     toggle.addEventListener('click', function () {
       var open = navEl.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // ── Brand logo → return to overview ────────────────────────
+  var brand = document.querySelector('.gh-nav-brand');
+  if (brand) {
+    brand.addEventListener('click', function (e) {
+      e.preventDefault();
+      activateTab('overview');
     });
   }
 

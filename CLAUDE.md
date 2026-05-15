@@ -25,7 +25,7 @@ Single-page site with one file per concern:
 | File | Role |
 |---|---|
 | `index.html` | All content and structure (single page, 7 tabs) |
-| `css/style.css` | All styles — GitHub profile layout, warm off-white + amber cyberpunk |
+| `css/style.css` | All styles — GitHub profile layout, cool watercolour cyberpunk |
 | `js/main.js` | Tab switching, pinned card clicks, mobile nav toggle, image fade-in |
 | `assets/images/` | Photos and artwork (CC BY-NC 4.0 licensed) |
 | `assets/icons/` | SVG social media icons |
@@ -36,11 +36,14 @@ Single-page site with one file per concern:
 
 Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
 
-- **Palette:** Warm off-white bg (`#f0eeeb`) · card surfaces (`#ffffff`, `#f8f6f3`) · amber accent (`#d4621a`) · copper (`#9c5220`) · rust (`#6b3310`)
+- **Brand palette (Absolutely Plausible / Robot Fantôme):** cool watercolour identity — teal → blue → violet, anchored by the AP logo steel-blue. This is the brand standard; never reintroduce the retired orange palette.
+  - `--accent` `#3f7d9c` (AP logo steel-blue, primary) · `--accent-mid` `#4b5fa8` (indigo-blue) · `--accent-deep` `#6a4f9e` (violet) · `--accent-teal` `#5cb0ad` (highlight)
+  - Background: faint cool paper `#eef0f2` · surfaces `#ffffff`, `#f5f6f9` · text `#1e2238` · muted `#5f6480`
 - **Font:** Share Tech Mono throughout — hierarchy via size, letter-spacing, text-transform only
 - **Layout:** CSS Grid `296px 1fr` (sidebar + main), max-width 1280px
 - **CRT scanlines overlay:** `body::before` pseudo-element, z-index 9999
-- **Glow effects:** `--glow-orange` and `--glow-copper` CSS vars used for `text-shadow` / `box-shadow`
+- **Glow effects:** `--glow-accent` and `--glow-mid` CSS vars used for `text-shadow` / `box-shadow`
+- **Motion:** glitch/flicker are occasional, subtle bursts; `prefers-reduced-motion` disables all motion
 - **Card shadow:** `--card-shadow` for white cards lifting off warm bg
 
 Section structure in HTML uses `module_01` through `module_06` labels, rendered as tabs via `.gh-tab` / `.gh-panel`.
