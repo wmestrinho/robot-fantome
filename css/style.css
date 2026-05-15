@@ -869,24 +869,6 @@ a:hover { color: var(--accent-hover); }
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
 }
-.ap-collabs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-top: 0.75rem;
-}
-.ap-collab-entry {
-  font-size: 0.78rem;
-  color: var(--page-text);
-  padding: 0.3rem 0;
-  border-bottom: 1px solid var(--page-border);
-}
-.ap-collab-date {
-  margin-right: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-}
-
 /* ── Gallery ───────────────────────────────────────────────── */
 .gallery-grid {
   display: grid;
