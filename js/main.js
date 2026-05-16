@@ -18,6 +18,8 @@
   var navLinks = document.querySelectorAll('.gh-nav-links a[data-tab]');
   var panels   = document.querySelectorAll('.gh-panel');
 
+  var layout = document.querySelector('.gh-layout');
+
   function activateTab(target) {
     navLinks.forEach(function (a) {
       a.classList.toggle('active', a.dataset.tab === target);
@@ -25,6 +27,8 @@
     panels.forEach(function (p) {
       p.classList.toggle('active', p.id === target);
     });
+    // Profile sidebar is only shown on the About tab
+    if (layout) layout.classList.toggle('show-sidebar', target === 'about');
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 

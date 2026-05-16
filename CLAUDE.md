@@ -40,7 +40,7 @@ Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
   - `--accent` `#3f7d9c` (AP logo steel-blue, primary) · `--accent-mid` `#4b5fa8` (indigo-blue) · `--accent-deep` `#6a4f9e` (violet) · `--accent-teal` `#5cb0ad` (highlight)
   - Background: faint cool paper `#eef0f2` · surfaces `#ffffff`, `#f5f6f9` · text `#1e2238` · muted `#5f6480`
 - **Font:** Share Tech Mono throughout — hierarchy via size, letter-spacing, text-transform only
-- **Layout:** CSS Grid `296px 1fr` (sidebar + main), max-width 1280px
+- **Layout:** CSS Grid, max-width 1280px — full-width main by default; the `296px` profile sidebar (`.gh-sidebar`) shows only on the About tab, toggled by the `.show-sidebar` class on `.gh-layout`
 - **CRT scanlines overlay:** `body::before` pseudo-element, z-index 9999
 - **Glow effects:** `--glow-accent` and `--glow-mid` CSS vars used for `text-shadow` / `box-shadow`
 - **Motion:** glitch/flicker are occasional, subtle bursts; `prefers-reduced-motion` disables all motion
