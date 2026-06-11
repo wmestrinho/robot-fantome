@@ -736,6 +736,18 @@ a:hover { color: var(--accent-hover); }
 .artist-links a { color: var(--color-muted); }
 .artist-links a:hover { color: var(--accent); }
 
+/* ── Music ─────────────────────────────────────────────────── */
+.music-embed {
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+.music-embed iframe {
+  display: block;
+  border: 0;
+  border-radius: 12px;
+}
+
 /* ── Blog ──────────────────────────────────────────────────── */
 .blog-list {
   display: flex;
