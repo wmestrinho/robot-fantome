@@ -748,6 +748,28 @@ a:hover { color: var(--accent-hover); }
   border-radius: 12px;
 }
 
+/* ── Press kit ─────────────────────────────────────────────── */
+.press-bio {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.press-photo-lead {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.press-photo-lead.loaded { opacity: 1; }
+/* Press photos keep their native aspect ratio — no face cropping */
+.press-grid .gallery-image { aspect-ratio: auto; }
+@media (max-width: 700px) {
+  .press-bio { grid-template-columns: 1fr; }
+}
+
 /* ── Blog ──────────────────────────────────────────────────── */
 .blog-list {
   display: flex;
@@ -1070,5 +1092,6 @@ footer {
   .hero-image,
   .gh-panel-image,
   .mixtape-image,
+  .press-photo-lead,
   .ap-logo { opacity: 1 !important; }
 }
