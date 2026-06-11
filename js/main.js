@@ -29,8 +29,27 @@
     });
     // Profile sidebar is only shown on the About tab
     if (layout) layout.classList.toggle('show-sidebar', target === 'about');
+    // Keep the URL shareable (#blog, #mixtape, …) without triggering native scroll
+    if (history.replaceState) {
+      history.replaceState(null, '', target === 'overview' ? window.location.pathname : '#' + target);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
+
+  // ── Deep links: open the tab named in the URL hash ─────────
+  function tabFromHash() {
+    var id = window.location.hash.slice(1);
+    var el = id && document.getElementById(id);
+    return el && el.classList.contains('gh-panel') ? id : null;
+  }
+
+  var initialTab = tabFromHash();
+  if (initialTab) activateTab(initialTab);
+
+  window.addEventListener('hashchange', function () {
+    var tab = tabFromHash();
+    if (tab) activateTab(tab);
+  });
 
   // ── Pinned cards → switch to their tab ─────────────────────
   document.querySelectorAll('.gh-pinned-card').forEach(function (card) {

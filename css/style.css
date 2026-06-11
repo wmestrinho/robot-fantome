@@ -736,6 +736,49 @@ a:hover { color: var(--accent-hover); }
 .artist-links a { color: var(--color-muted); }
 .artist-links a:hover { color: var(--accent); }
 
+/* ── Blog ──────────────────────────────────────────────────── */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.blog-post {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--accent-deep);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--card-shadow);
+}
+.blog-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--page-muted);
+  margin-bottom: 0.5rem;
+}
+.blog-post-tags { color: var(--accent-mid); }
+.blog-post-title {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-shadow: var(--glow-accent);
+  margin-bottom: 0.6rem;
+}
+.blog-post-body {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--page-text);
+  max-width: 680px;
+}
+.blog-post-body p + p { margin-top: 0.75rem; }
+.blog-post-body a { color: var(--accent-mid); }
+.blog-post-body a:hover { color: var(--accent); }
+
 /* ── Resume blocks (About panel) ───────────────────────────── */
 .resume-block { margin-top: 2rem; }
 .resume-block-title {
