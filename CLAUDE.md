@@ -24,7 +24,7 @@ Single-page site with one file per concern:
 
 | File | Role |
 |---|---|
-| `index.html` | All content and structure (single page, 8 tabs) |
+| `index.html` | All content and structure (single page, 7 tabs; Music is the home tab) |
 | `css/style.css` | All styles — GitHub profile layout, cool watercolour cyberpunk |
 | `js/main.js` | Tab switching, pinned card clicks, mobile nav toggle, image fade-in |
 | `assets/images/` | Photos and artwork (CC BY-NC 4.0 licensed) |
@@ -46,7 +46,9 @@ Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
 - **Motion:** glitch/flicker are occasional, subtle bursts; `prefers-reduced-motion` disables all motion
 - **Card shadow:** `--card-shadow` for white cards lifting off the cool paper bg
 
-Content is split into tabs (`.gh-panel`), switched by the top nav and Overview pinned cards, music-first: overview, music, press kit, blog, mix-tape, absolutely plausible, about, volunteer. Tabs are deep-linkable via URL hash (`#music`, `#press`, …). Former opensource and sustainability tabs live on as blog posts. The Absolutely Plausible tab carries the gallery — Artwork / Projects / Events. The Events timeline is sourced from `journey.md` in the `absolutelyplausible-business-plan` repo (one entry per documented Instagram post).
+Content is split into tabs (`.gh-panel`), switched by the top nav and pinned cards: music (home — hero card, EP player, shows, live gallery, mailing list, pinned grid), press kit, blog, mix-tape, absolutely plausible, about, volunteer. There is no separate overview tab. Tabs are deep-linkable via URL hash (`#press`, `#blog`, …; bare URL = music). Former opensource and sustainability tabs live on as blog posts.
+
+**Image standard:** every content photo is a `.gallery-item` figure — thumbnail wrapped in `<a class="gallery-link">` linking to the image's own public URL, with a `.gallery-caption` that carries attribution (CC BY-NC 4.0 and/or an Instagram/source link). New photos must follow this pattern. The Absolutely Plausible tab carries the gallery — Artwork / Projects / Events. The Events timeline is sourced from `journey.md` in the `absolutelyplausible-business-plan` repo (one entry per documented Instagram post).
 
 ## Constraints
 

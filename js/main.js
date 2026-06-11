@@ -33,7 +33,7 @@
     // Profile sidebar is only shown on the About tab
     if (layout) layout.classList.toggle('show-sidebar', target === 'about');
     // Keep the URL shareable (#blog, #mixtape, …) and the back button working
-    var newHash = target === 'overview' ? '' : '#' + target;
+    var newHash = target === 'music' ? '' : '#' + target;
     if (push !== false && history.pushState && window.location.hash !== newHash) {
       history.pushState(null, '', newHash || window.location.pathname);
     }
@@ -52,7 +52,7 @@
 
   // Back/forward buttons and in-page #links walk the tab history
   window.addEventListener('popstate', function () {
-    activateTab(tabFromHash() || 'overview', false);
+    activateTab(tabFromHash() || 'music', false);
   });
   window.addEventListener('hashchange', function () {
     var tab = tabFromHash();
@@ -90,12 +90,12 @@
     });
   }
 
-  // ── Brand logo → return to overview ────────────────────────
+  // ── Brand logo → return home (music) ───────────────────────
   var brand = document.querySelector('.gh-nav-brand');
   if (brand) {
     brand.addEventListener('click', function (e) {
       e.preventDefault();
-      activateTab('overview');
+      activateTab('music');
     });
   }
 

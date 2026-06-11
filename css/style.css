@@ -746,6 +746,16 @@ a:hover { color: var(--accent-hover); }
   border-radius: 12px;
 }
 
+/* ── Gallery links — every picture opens its public URL ────── */
+.gallery-link {
+  display: block;
+  cursor: zoom-in;
+}
+.gallery-link:hover .gallery-image,
+.gallery-link:hover .press-photo-lead {
+  filter: saturate(1) contrast(1.05);
+}
+
 /* ── Press kit ─────────────────────────────────────────────── */
 .press-bio {
   display: grid;
