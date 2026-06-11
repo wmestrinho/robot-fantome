@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static portfolio site for [robotfantome.com](https://robotfantome.com) — rebuilt in plain HTML/CSS/JS with zero build tools and zero dependencies. Everything ships as-is.
+Music portfolio site for Robot Fantôme (indie / punk / rock, Orlando, FL) at [robotfantome.com](https://robotfantome.com) — plain HTML/CSS/JS with zero build tools and zero dependencies. Everything ships as-is.
 
 **Live site:** [robotfantome.com](https://robotfantome.com)
 
@@ -24,7 +24,7 @@ Single-page site with one file per concern:
 
 | File | Role |
 |---|---|
-| `index.html` | All content and structure (single page, 7 tabs) |
+| `index.html` | All content and structure (single page, 8 tabs) |
 | `css/style.css` | All styles — GitHub profile layout, cool watercolour cyberpunk |
 | `js/main.js` | Tab switching, pinned card clicks, mobile nav toggle, image fade-in |
 | `assets/images/` | Photos and artwork (CC BY-NC 4.0 licensed) |
@@ -46,7 +46,7 @@ Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
 - **Motion:** glitch/flicker are occasional, subtle bursts; `prefers-reduced-motion` disables all motion
 - **Card shadow:** `--card-shadow` for white cards lifting off the cool paper bg
 
-Content is split into tabs (`.gh-panel`), switched by the top nav and Overview pinned cards: overview, opensource, mix-tape, sustainability, about, volunteer, absolutely plausible. The Absolutely Plausible tab carries the gallery — Artwork / Projects / Events. The Events timeline is sourced from `journey.md` in the `absolutelyplausible-business-plan` repo (one entry per documented Instagram post).
+Content is split into tabs (`.gh-panel`), switched by the top nav and Overview pinned cards, music-first: overview, music, press kit, blog, mix-tape, absolutely plausible, about, volunteer. Tabs are deep-linkable via URL hash (`#music`, `#press`, …). Former opensource and sustainability tabs live on as blog posts. The Absolutely Plausible tab carries the gallery — Artwork / Projects / Events. The Events timeline is sourced from `journey.md` in the `absolutelyplausible-business-plan` repo (one entry per documented Instagram post).
 
 ## Constraints
 
