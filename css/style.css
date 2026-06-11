@@ -4,8 +4,6 @@
    Font: Share Tech Mono · Palette: cool watercolour — teal/blue/violet
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 /* ── Custom Properties ─────────────────────────────────────────
    BRAND PALETTE — Absolutely Plausible / Robot Fantôme
    Cool watercolour identity: teal → blue → violet, anchored by the
@@ -160,7 +158,7 @@ a:hover { color: var(--accent-hover); }
 }
 .gh-nav-links a.active {
   color: var(--accent);
-  background: #ede9e3;
+  background: var(--bg-overlay);
   text-shadow: var(--glow-accent);
 }
 

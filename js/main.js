@@ -20,18 +20,22 @@
 
   var layout = document.querySelector('.gh-layout');
 
-  function activateTab(target) {
+  function activateTab(target, push) {
     navLinks.forEach(function (a) {
-      a.classList.toggle('active', a.dataset.tab === target);
+      var on = a.dataset.tab === target;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
     });
     panels.forEach(function (p) {
       p.classList.toggle('active', p.id === target);
     });
     // Profile sidebar is only shown on the About tab
     if (layout) layout.classList.toggle('show-sidebar', target === 'about');
-    // Keep the URL shareable (#blog, #mixtape, …) without triggering native scroll
-    if (history.replaceState) {
-      history.replaceState(null, '', target === 'overview' ? window.location.pathname : '#' + target);
+    // Keep the URL shareable (#blog, #mixtape, …) and the back button working
+    var newHash = target === 'overview' ? '' : '#' + target;
+    if (push !== false && history.pushState && window.location.hash !== newHash) {
+      history.pushState(null, '', newHash || window.location.pathname);
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
@@ -44,11 +48,15 @@
   }
 
   var initialTab = tabFromHash();
-  if (initialTab) activateTab(initialTab);
+  if (initialTab) activateTab(initialTab, false);
 
+  // Back/forward buttons and in-page #links walk the tab history
+  window.addEventListener('popstate', function () {
+    activateTab(tabFromHash() || 'overview', false);
+  });
   window.addEventListener('hashchange', function () {
     var tab = tabFromHash();
-    if (tab) activateTab(tab);
+    if (tab) activateTab(tab, false);
   });
 
   // ── Pinned cards → switch to their tab ─────────────────────
