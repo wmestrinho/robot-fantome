@@ -20,12 +20,13 @@ Required baseline for AI agents
 
 Version rule
 - Single source of truth: `VERSION` unless this repo already documents another version source in `README.md` or `CLAUDE.md`.
-- Current baseline version: `v3.4.1 beta`
-- Web UIs must visibly display the version.
+- Current version: read it from `VERSION` — do not trust hardcoded version strings in docs.
+- Web UIs must visibly display the version (site footer).
 - Bump version for behavior/UI changes.
 
 Deployment
-- Cloudflare Workers/Pages via Wrangler. Config: `wrangler.jsonc` or `wrangler.toml`.
+- GitHub Pages from `main` (root path, no build step). `CNAME` sets the custom domain; Cloudflare provides DNS/CDN in front.
+- The old Cloudflare Workers/Wrangler deploy path is retired; `wrangler.jsonc` was removed 2026-06-11. Do not reintroduce it without updating `README.md` and `CLAUDE.md`.
 
 Validation
 - Run: `python3 scripts/validate_agent_baseline.py`
