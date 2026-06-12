@@ -42,7 +42,7 @@
 
   // ── Deep links: open the tab named in the URL hash ─────────
   // Legacy hashes from retired tabs keep working
-  var hashAliases = { about: 'blog', volunteer: 'blog', ap: 'blog', overview: 'music' };
+  var hashAliases = { about: 'blog', volunteer: 'blog', ap: 'blog', overview: 'music', press: 'music' };
 
   function tabFromHash() {
     var id = window.location.hash.slice(1);
