@@ -746,6 +746,13 @@ a:hover { color: var(--accent-hover); }
   border-radius: 12px;
 }
 
+/* ── External nav link & pinned card as anchor ─────────────── */
+.gh-nav-external { white-space: nowrap; }
+a.gh-pinned-card {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ── Gallery links — every picture opens its public URL ────── */
 .gallery-link {
   display: block;
@@ -1022,6 +1029,24 @@ footer {
   width: 80px; height: 1px;
   background: var(--accent);
   box-shadow: var(--glow-accent);
+}
+.footer-ap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--page-muted);
+}
+.footer-ap:hover { color: var(--accent); }
+.footer-ap-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
 }
 .footer-license {
   font-size: 0.62rem;

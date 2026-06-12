@@ -30,8 +30,8 @@
     panels.forEach(function (p) {
       p.classList.toggle('active', p.id === target);
     });
-    // Profile sidebar is only shown on the About tab
-    if (layout) layout.classList.toggle('show-sidebar', target === 'about');
+    // Profile sidebar is only shown on the Blog & Story tab
+    if (layout) layout.classList.toggle('show-sidebar', target === 'blog');
     // Keep the URL shareable (#blog, #mixtape, …) and the back button working
     var newHash = target === 'music' ? '' : '#' + target;
     if (push !== false && history.pushState && window.location.hash !== newHash) {
@@ -41,8 +41,12 @@
   }
 
   // ── Deep links: open the tab named in the URL hash ─────────
+  // Legacy hashes from retired tabs keep working
+  var hashAliases = { about: 'blog', volunteer: 'blog', ap: 'blog', overview: 'music' };
+
   function tabFromHash() {
     var id = window.location.hash.slice(1);
+    if (hashAliases[id]) id = hashAliases[id];
     var el = id && document.getElementById(id);
     return el && el.classList.contains('gh-panel') ? id : null;
   }
