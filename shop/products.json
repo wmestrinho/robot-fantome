@@ -1,0 +1,60 @@
+{
+  "_README": "Source of truth for the Robot Fantôme shop. Edit this file, then run `python3 scripts/build_shop.py` to regenerate the shop/<id>.html product pages and the Shop-tab cards in index.html. ALL PRICES, COPY, AND IMAGES BELOW ARE PLACEHOLDERS for products marked \"draft\": true — replace them before launch.",
+  "worker_url": "https://shop-api.robotfantome.com",
+  "currency": "USD",
+  "products": [
+    {
+      "id": "sticker-pack-01",
+      "name": "Robot Fantôme sticker pack",
+      "type": "physical-stock",
+      "draft": true,
+      "price_usd": 8,
+      "qty": 50,
+      "image": "assets/images/shop/sticker-pack-01.jpg",
+      "tagline": "Die-cut vinyl stickers — slap them on everything.",
+      "description": "A pack of weatherproof die-cut vinyl stickers. PLACEHOLDER copy — replace with the real pack contents, count, and sizes.",
+      "shipping": "us",
+      "stripe_price_id": null
+    },
+    {
+      "id": "pallet-shoe-cubby",
+      "name": "Reclaimed pallet shoe cubby",
+      "type": "physical-unique",
+      "draft": true,
+      "price_usd": 120,
+      "qty": 1,
+      "image": "assets/images/shop/pallet-shoe-cubby.jpg",
+      "tagline": "One-of-a-kind artifact built from reclaimed pallets.",
+      "description": "Hand-built from reclaimed shipping pallets — one of a kind. PLACEHOLDER copy and price — replace with real dimensions and weight. Pallet artifacts are local pickup or freight only (heavy/oversized).",
+      "shipping": "local-pickup",
+      "stripe_price_id": null
+    },
+    {
+      "id": "collage-print-art-is-local",
+      "name": "“Art is Local” — collage print",
+      "type": "print-made-to-order",
+      "draft": true,
+      "price_usd": 30,
+      "qty": null,
+      "image": "assets/images/shop/collage-print-art-is-local.jpg",
+      "tagline": "Print of an original hand-made collage. Originals are not for sale.",
+      "description": "A print reproduction of an original Robot Fantôme collage. Luiz makes the originals by hand and keeps them; the shop sells prints only. PLACEHOLDER copy, price, and sizes — replace before launch.",
+      "shipping": "us",
+      "stripe_price_id": null
+    },
+    {
+      "id": "second-hand-made-shirt-nirvana",
+      "name": "Second-Hand-made shirt — washed Nirvana",
+      "type": "physical-unique",
+      "draft": true,
+      "badge": "100% Zero-Waste",
+      "price_usd": 35,
+      "qty": 1,
+      "image": "assets/images/shop/second-hand-made-shirt-nirvana.jpg",
+      "tagline": "100% zero-waste. One thrifted shirt, reborn by hand as band merch.",
+      "description": "A one-of-a-kind “Second-Hand-made” shirt: a second-hand thrift-store shirt turned into Robot Fantôme merch by hand — 100% zero-waste, sustainable art. Size M. PLACEHOLDER copy — replace with real size, condition, and photos.",
+      "shipping": "us",
+      "stripe_price_id": null
+    }
+  ]
+}

@@ -1009,6 +1009,153 @@ a.gh-pinned-card {
 .gallery-caption a { color: var(--color-muted); text-decoration: underline; }
 .gallery-caption a:hover { color: var(--accent); text-shadow: none; }
 
+/* ── Shop ──────────────────────────────────────────────────── */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.shop-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(63,125,156,0.16), 0 0 0 1px var(--accent);
+  transform: translateY(-2px);
+}
+.shop-card .gallery-image { aspect-ratio: 4 / 3; opacity: 1; }
+.shop-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0.8rem 0.85rem;
+}
+.shop-card-name {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.shop-card-tagline {
+  font-size: 0.62rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+.shop-card-price {
+  font-size: 0.85rem;
+  color: var(--accent-deep);
+  margin-top: 0.1rem;
+}
+.shop-card-draft {
+  align-self: flex-start;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--page-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+}
+
+/* Product badge (e.g. 100% Zero-Waste) */
+.product-badge {
+  align-self: flex-start;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  border: 1px solid var(--accent-teal);
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+}
+
+/* ── Product detail page ───────────────────────────────────── */
+.product-page { padding-top: 1.5rem; }
+.product-breadcrumb {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.product-breadcrumb a { color: var(--accent-mid); }
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+.product-media .gallery-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  opacity: 1;
+}
+.product-info { display: flex; flex-direction: column; gap: 0.75rem; }
+.product-name {
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-shadow: var(--glow-accent);
+}
+.product-tagline { font-size: 0.82rem; color: var(--accent-mid); }
+.product-price { font-size: 1.1rem; color: var(--accent-deep); }
+.product-description {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--page-text);
+  max-width: 60ch;
+}
+.btn-buy {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-buy:hover:not(:disabled) {
+  background: var(--accent-hover);
+  box-shadow: 0 2px 12px rgba(63,125,156,0.3);
+}
+.btn-buy:disabled { opacity: 0.6; cursor: default; }
+.product-buy-note,
+.product-pickup {
+  font-size: 0.65rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+.product-pickup a { color: var(--accent-mid); }
+.product-draft {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  border: 1px dashed var(--accent-deep);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+}
+@media (max-width: 700px) {
+  .product-detail { grid-template-columns: 1fr; }
+}
+
 /* ── Footer ────────────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--page-border);

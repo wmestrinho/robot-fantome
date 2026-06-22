@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Product photo coming soon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f7d9c"/>
+      <stop offset="0.5" stop-color="#4b5fa8"/>
+      <stop offset="1" stop-color="#6a4f9e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#1e2238"/>
+  <rect width="800" height="600" fill="url(#g)" opacity="0.18"/>
+  <g fill="#5cb0ad" font-family="'Share Tech Mono', monospace" text-anchor="middle">
+    <text x="400" y="300" font-size="34" letter-spacing="4">// photo coming soon</text>
+    <text x="400" y="345" font-size="18" fill="#5f6480" letter-spacing="3">drop a real image in assets/images/shop/</text>
+  </g>
+</svg>
