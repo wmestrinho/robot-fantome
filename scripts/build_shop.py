@@ -36,10 +36,51 @@ AVAILABILITY = {
     "in-stock": "https://schema.org/InStock",
 }
 
+# Footer trust row (path-independent: inline SVG + text chips, no image files).
+# Kept byte-identical to the copy spliced into index.html so the look is uniform.
+TRUST_BADGES = (
+    '<div class="trust-badges" aria-label="Secure checkout and accepted payment methods">\n'
+    '        <svg class="trust-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 0 1 6 0v3H9z"/></svg>\n'
+    '        <span class="trust-text">Secure checkout via Stripe</span>\n'
+    '        <span class="pay-chip">Visa</span>\n'
+    '        <span class="pay-chip">Mastercard</span>\n'
+    '        <span class="pay-chip">Amex</span>\n'
+    '        <span class="pay-chip">Apple&nbsp;Pay</span>\n'
+    '      </div>'
+)
+
 
 def e(text):
     """HTML-escape (and keep the result safe inside attributes too)."""
     return html.escape(str(text), quote=True)
+
+
+def fmt_usd(v):
+    """'$35' for whole dollars, '$34.50' otherwise."""
+    if isinstance(v, float) and not v.is_integer():
+        return f"${v:.2f}"
+    return f"${int(v)}"
+
+
+def price_spans(p):
+    """Sale-aware price markup: optional struck-through compare-at + sale price (+ % off).
+
+    Renders just the price price <span>s; the caller wraps them in .product-price /
+    .shop-card-price. `compare_at_usd` (optional) is the original price shown struck
+    through when it is higher than `price_usd`.
+    """
+    price = p.get("price_usd")
+    if price is None:
+        return '<span class="price-now">Price on request</span>'
+    now = f'<span class="price-now">{e(fmt_usd(price))}</span>'
+    compare = p.get("compare_at_usd")
+    if isinstance(compare, (int, float)) and compare > price:
+        off = round((compare - price) / compare * 100)
+        return (
+            f'<span class="price-was">{e(fmt_usd(compare))}</span> {now}'
+            f' <span class="price-save">&minus;{off}%</span>'
+        )
+    return now
 
 
 def availability(p):
@@ -110,10 +151,10 @@ def product_page(p, currency, worker_url):
             'Email to arrange &rarr;</a></p>'
         )
     else:
-        price_label = f"${price}" if price is not None else "Buy"
+        price_label = fmt_usd(price) if price is not None else "Buy"
         buy_html = (
             f'<button class="btn-buy" data-product-id="{e(pid)}" data-qty="1">'
-            f'Buy &mdash; {e(price_label)}</button>\n'
+            f'Add to cart &mdash; {e(price_label)}</button>\n'
             '        <p class="product-buy-note">Secure checkout via Stripe. '
             'Card details never touch this site.</p>'
         )
@@ -170,7 +211,7 @@ def product_page(p, currency, worker_url):
         {badge_html}
         <h1 class="product-name">{e(name)}</h1>
         <p class="product-tagline">{e(tagline)}</p>
-        <p class="product-price">${e(price)}</p>
+        <p class="product-price">{price_spans(p)}</p>
         <p class="product-description">{e(desc)}</p>
         {buy_html}{draft_banner}
       </div>
@@ -183,6 +224,7 @@ def product_page(p, currency, worker_url):
         <img src="../assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
+      {TRUST_BADGES}
       <p class="footer-license">
         Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
@@ -190,7 +232,8 @@ def product_page(p, currency, worker_url):
     </div>
   </footer>
 
-  <script src="../js/shop.js"></script>
+  <script src="../js/shop-catalog.js"></script>
+  <script src="../js/cart.js"></script>
 </body>
 </html>
 """
@@ -201,7 +244,6 @@ def card(p):
     pid = p["id"]
     name = p["name"]
     tagline = p.get("tagline", "")
-    price = p.get("price_usd")
     img = resolve_image(p)
     badge = p.get("badge")
     badge_html = f'\n        <span class="product-badge">{e(badge)}</span>' if badge else ""
@@ -211,9 +253,30 @@ def card(p):
           <div class="shop-card-body">{badge_html}{draft_html}
             <span class="shop-card-name">{e(name)}</span>
             <span class="shop-card-tagline">{e(tagline)}</span>
-            <span class="shop-card-price">${e(price)}</span>
+            <span class="shop-card-price">{price_spans(p)}</span>
           </div>
         </a>"""
+
+
+def catalog_js(products):
+    """window.RF_CATALOG used by js/cart.js to render line items (display only).
+
+    Paths are site-absolute so the same file works from the home page (/) and from
+    a product page (/shop/<id>.html). The Worker re-prices every line server-side —
+    this catalog is never trusted for checkout pricing.
+    """
+    cat = {}
+    for p in products:
+        pid = p["id"]
+        cat[pid] = {
+            "name": p["name"],
+            "price": p.get("price_usd"),
+            "compare_at": p.get("compare_at_usd"),
+            "image": "/" + resolve_image(p),
+            "url": f"/shop/{pid}.html",
+            "pickup": p.get("shipping") == "local-pickup",
+        }
+    return "window.RF_CATALOG = " + json.dumps(cat, ensure_ascii=False, indent=2) + ";\n"
 
 
 def main():
@@ -236,6 +299,16 @@ def main():
             if not check:
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(new)
+
+    # 1b. shop catalog for the cart (window.RF_CATALOG)
+    catalog_path = os.path.join(REPO, "js", "shop-catalog.js")
+    new_cat = catalog_js(products)
+    old_cat = open(catalog_path, encoding="utf-8").read() if os.path.exists(catalog_path) else None
+    if new_cat != old_cat:
+        changed.append(os.path.relpath(catalog_path, REPO))
+        if not check:
+            with open(catalog_path, "w", encoding="utf-8") as f:
+                f.write(new_cat)
 
     # 2. splice cards into index.html
     index_path = os.path.join(REPO, "index.html")

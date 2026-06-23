@@ -72,9 +72,9 @@
         
         <h1 class="product-name">Robot Fantôme sticker pack</h1>
         <p class="product-tagline">Die-cut vinyl stickers — slap them on everything.</p>
-        <p class="product-price">$8</p>
+        <p class="product-price"><span class="price-was">$12</span> <span class="price-now">$8</span> <span class="price-save">&minus;33%</span></p>
         <p class="product-description">A pack of weatherproof die-cut vinyl stickers. PLACEHOLDER copy — replace with the real pack contents, count, and sizes.</p>
-        <button class="btn-buy" data-product-id="sticker-pack-01" data-qty="1">Buy &mdash; $8</button>
+        <button class="btn-buy" data-product-id="sticker-pack-01" data-qty="1">Add to cart &mdash; $8</button>
         <p class="product-buy-note">Secure checkout via Stripe. Card details never touch this site.</p>
       <p class="product-draft">DRAFT — placeholder data, not for sale yet.</p>
       </div>
@@ -87,6 +87,14 @@
         <img src="../assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
+      <div class="trust-badges" aria-label="Secure checkout and accepted payment methods">
+        <svg class="trust-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 0 1 6 0v3H9z"/></svg>
+        <span class="trust-text">Secure checkout via Stripe</span>
+        <span class="pay-chip">Visa</span>
+        <span class="pay-chip">Mastercard</span>
+        <span class="pay-chip">Amex</span>
+        <span class="pay-chip">Apple&nbsp;Pay</span>
+      </div>
       <p class="footer-license">
         Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
@@ -94,6 +102,7 @@
     </div>
   </footer>
 
-  <script src="../js/shop.js"></script>
+  <script src="../js/shop-catalog.js"></script>
+  <script src="../js/cart.js"></script>
 </body>
 </html>

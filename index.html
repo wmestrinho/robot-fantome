@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="canonical" href="https://robotfantome.com/" />
   <meta name="theme-color" content="#3f7d9c" />
+  <meta name="shop-worker-url" content="https://shop-api.robotfantome.com" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Robot Fantôme — indie / punk / rock from Orlando, FL" />
@@ -295,13 +296,34 @@
           </div>
         </div>
 
+        <!-- Press quotes — PLACEHOLDER: replace with real pull-quotes + sources before launch -->
+        <div class="resume-block">
+          <div class="press-quotes">
+            <figure class="press-quote">
+              <blockquote>&ldquo;Placeholder pull-quote &mdash; swap in a real line from press, a zine, or a show review.&rdquo;</blockquote>
+              <figcaption>&mdash; Publication / source <span class="press-quote-draft">draft</span></figcaption>
+            </figure>
+            <figure class="press-quote">
+              <blockquote>&ldquo;Placeholder pull-quote &mdash; a second voice (radio, blog, fellow artist) goes here.&rdquo;</blockquote>
+              <figcaption>&mdash; Publication / source <span class="press-quote-draft">draft</span></figcaption>
+            </figure>
+            <figure class="press-quote">
+              <blockquote>&ldquo;Placeholder pull-quote &mdash; keep these short and punchy, like the reference site.&rdquo;</blockquote>
+              <figcaption>&mdash; Publication / source <span class="press-quote-draft">draft</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
         <!-- Booking, press & mailing list -->
         <div class="resume-block">
           <div class="mixtape-featured">
             <h3 class="mixtape-featured-title">Get in touch</h3>
-            <p class="mixtape-featured-desc">Booking, press, collaborations &mdash; EN / PT / ES. New releases and show dates by email &mdash; no spam, ever.</p>
-            <a href="mailto:absolutelyplausible@gmail.com">absolutelyplausible@gmail.com</a><br />
-            <a href="mailto:absolutelyplausible@gmail.com?subject=subscribe">Email &ldquo;subscribe&rdquo; to join the mailing list &rarr;</a>
+            <p class="mixtape-featured-desc">Booking, press, collaborations &mdash; EN / PT / ES.</p>
+            <a href="mailto:absolutelyplausible@gmail.com">absolutelyplausible@gmail.com</a>
+          </div>
+          <div class="mailing-card" data-subscribe>
+            <p class="mailing-pitch">Join the mailing list &mdash; first dibs on one-of-a-kind drops, subscriber-only discounts, and new&nbsp;release&nbsp;+&nbsp;show dates. No spam, ever.</p>
+            <a class="mailing-cta" href="mailto:absolutelyplausible@gmail.com?subject=subscribe&amp;body=Add%20me%20to%20the%20Robot%20Fant%C3%B4me%20mailing%20list.">Subscribe by email &rarr;</a>
           </div>
         </div>
 
@@ -363,7 +385,7 @@
         <span class="shop-card-draft">draft</span>
             <span class="shop-card-name">Robot Fantôme sticker pack</span>
             <span class="shop-card-tagline">Die-cut vinyl stickers — slap them on everything.</span>
-            <span class="shop-card-price">$8</span>
+            <span class="shop-card-price"><span class="price-was">$12</span> <span class="price-now">$8</span> <span class="price-save">&minus;33%</span></span>
           </div>
         </a>
         <a class="shop-card" href="shop/pallet-shoe-cubby.html">
@@ -372,7 +394,7 @@
         <span class="shop-card-draft">draft</span>
             <span class="shop-card-name">Reclaimed pallet shoe cubby</span>
             <span class="shop-card-tagline">One-of-a-kind artifact built from reclaimed pallets.</span>
-            <span class="shop-card-price">$120</span>
+            <span class="shop-card-price"><span class="price-now">$120</span></span>
           </div>
         </a>
         <a class="shop-card" href="shop/collage-print-art-is-local.html">
@@ -381,7 +403,7 @@
         <span class="shop-card-draft">draft</span>
             <span class="shop-card-name">“Art is Local” — collage print</span>
             <span class="shop-card-tagline">Print of an original hand-made collage. Originals are not for sale.</span>
-            <span class="shop-card-price">$30</span>
+            <span class="shop-card-price"><span class="price-now">$30</span></span>
           </div>
         </a>
         <a class="shop-card" href="shop/second-hand-made-shirt-nirvana.html">
@@ -391,7 +413,7 @@
         <span class="shop-card-draft">draft</span>
             <span class="shop-card-name">Second-Hand-made shirt — washed Nirvana</span>
             <span class="shop-card-tagline">100% zero-waste. One thrifted shirt, reborn by hand as band merch.</span>
-            <span class="shop-card-price">$35</span>
+            <span class="shop-card-price"><span class="price-was">$45</span> <span class="price-now">$35</span> <span class="price-save">&minus;22%</span></span>
           </div>
         </a>
         <!-- shop:cards:end -->
@@ -1149,14 +1171,24 @@
         <img src="assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
+      <div class="trust-badges" aria-label="Secure checkout and accepted payment methods">
+        <svg class="trust-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 0 1 6 0v3H9z"/></svg>
+        <span class="trust-text">Secure checkout via Stripe</span>
+        <span class="pay-chip">Visa</span>
+        <span class="pay-chip">Mastercard</span>
+        <span class="pay-chip">Amex</span>
+        <span class="pay-chip">Apple&nbsp;Pay</span>
+      </div>
       <p class="footer-license">
         Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
       </p>
-      <p class="footer-version">v4.4.0 beta</p>
+      <p class="footer-version">v4.5.0 beta</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/shop-catalog.js"></script>
+  <script src="js/cart.js"></script>
 </body>
 </html>
