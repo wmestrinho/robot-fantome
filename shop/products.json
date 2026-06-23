@@ -13,6 +13,7 @@
       "qty": 50,
       "image": "assets/images/shop/sticker-pack-01.jpg",
       "tagline": "Die-cut vinyl stickers — slap them on everything.",
+      "meta_description": "Die-cut weatherproof vinyl stickers from Robot Fantôme — slap them on everything. Hand-made indie / punk art stickers by Absolutely Plausible, Orlando FL.",
       "description": "A pack of weatherproof die-cut vinyl stickers. PLACEHOLDER copy — replace with the real pack contents, count, and sizes.",
       "shipping": "us",
       "stripe_price_id": null
@@ -26,6 +27,7 @@
       "qty": 1,
       "image": "assets/images/shop/pallet-shoe-cubby.jpg",
       "tagline": "One-of-a-kind artifact built from reclaimed pallets.",
+      "meta_description": "A one-of-a-kind shoe cubby hand-built from reclaimed shipping pallets by Robot Fantôme. Zero-waste functional art — local pickup or freight, Orlando FL.",
       "description": "Hand-built from reclaimed shipping pallets — one of a kind. PLACEHOLDER copy and price — replace with real dimensions and weight. Pallet artifacts are local pickup or freight only (heavy/oversized).",
       "shipping": "local-pickup",
       "stripe_price_id": null
@@ -39,6 +41,7 @@
       "qty": null,
       "image": "assets/images/shop/collage-print-art-is-local.jpg",
       "tagline": "Print of an original hand-made collage. Originals are not for sale.",
+      "meta_description": "“Art is Local” — an archival print of an original hand-made Robot Fantôme collage. Originals are never for sale; prints only. Indie collage art from Orlando.",
       "description": "A print reproduction of an original Robot Fantôme collage. Luiz makes the originals by hand and keeps them; the shop sells prints only. PLACEHOLDER copy, price, and sizes — replace before launch.",
       "shipping": "us",
       "stripe_price_id": null
@@ -54,6 +57,7 @@
       "qty": 1,
       "image": "assets/images/shop/second-hand-made-shirt-nirvana.jpg",
       "tagline": "100% zero-waste. One thrifted shirt, reborn by hand as band merch.",
+      "meta_description": "100% zero-waste Second-Hand-made shirt by Robot Fantôme — one thrifted Nirvana tee reborn by hand as band merch. One-of-a-kind, size M, from Orlando.",
       "description": "A one-of-a-kind “Second-Hand-made” shirt: a second-hand thrift-store shirt turned into Robot Fantôme merch by hand — 100% zero-waste, sustainable art. Size M. PLACEHOLDER copy — replace with real size, condition, and photos.",
       "shipping": "us",
       "stripe_price_id": null

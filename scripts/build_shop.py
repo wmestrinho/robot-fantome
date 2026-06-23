@@ -108,6 +108,7 @@ def product_page(p, currency, worker_url):
     name = p["name"]
     tagline = p.get("tagline", "")
     desc = p.get("description", "")
+    meta_desc = p.get("meta_description", "")
     price = p.get("price_usd")
     url = f"{SITE}/shop/{pid}.html"
     img_rel = resolve_image(p, prefix="../")          # for <img> on the page
@@ -165,14 +166,14 @@ def product_page(p, currency, worker_url):
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{e(name)} — Robot Fantôme shop</title>
-  <meta name="description" content="{e(tagline or desc)}" />
+  <meta name="description" content="{e(meta_desc or tagline or desc)}" />
   <meta name="robots" content="{'noindex, nofollow' if draft else 'index, follow, max-image-preview:large'}" />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
   <link rel="canonical" href="{url}" />
   <meta name="theme-color" content="#3f7d9c" />
   <meta property="og:type" content="product" />
   <meta property="og:title" content="{e(name)} — Robot Fantôme" />
-  <meta property="og:description" content="{e(tagline or desc)}" />
+  <meta property="og:description" content="{e(meta_desc or tagline or desc)}" />
   <meta property="og:url" content="{url}" />
   <meta property="og:image" content="{img_abs}" />
   <meta property="og:site_name" content="Robot Fantôme" />
