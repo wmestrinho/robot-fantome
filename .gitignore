@@ -13,3 +13,8 @@ node_modules/
 
 # Editor artifacts
 .vscode/
+
+# Raw shop source photos (kept locally; web-optimized heroes are committed under slug names)
+/assets/images/shop/IMG_*
+/assets/images/shop/PNG image*.png
+/assets/images/shop/60139763209__*.JPG
