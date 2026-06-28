@@ -11,7 +11,7 @@ window.RF_CATALOG = {
     "name": "Reclaimed pallet shoe cubby",
     "price": 120,
     "compare_at": null,
-    "image": "/assets/images/shop/placeholder.svg",
+    "image": "/assets/images/pallet-shoe-cubby.jpg",
     "url": "/shop/pallet-shoe-cubby.html",
     "pickup": true
   },
