@@ -1341,6 +1341,56 @@ a.gh-pinned-card {
 @media (prefers-reduced-motion: reduce) {
   .cart-drawer { transition: none; }
 }
+
+/* Post-checkout toast (thank-you / canceled) */
+.order-toast {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10002;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: min(440px, 92vw);
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-teal);
+  border-left: 3px solid var(--accent-teal);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(30, 34, 56, 0.25), var(--glow-accent);
+  color: var(--color-text);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  animation: toast-in 0.3s ease;
+}
+.order-toast-text strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+.order-toast-close {
+  flex: none;
+  margin: -0.2rem -0.2rem 0 0;
+  padding: 0 0.2rem;
+  background: none;
+  border: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.order-toast-close:hover { color: var(--accent); }
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, -8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .order-toast { animation: none; }
+}
 .shop-card-draft {
   align-self: flex-start;
   font-size: 0.55rem;

@@ -202,6 +202,43 @@
       });
   }
 
+  // ── Post-checkout return (Stripe redirects to /?order=success|cancel) ──
+  function showToast(title, body) {
+    var el = document.createElement('div');
+    el.className = 'order-toast';
+    el.setAttribute('role', 'status');
+    el.innerHTML =
+      '<div class="order-toast-text"><strong>' + esc(title) + '</strong>' + esc(body) + '</div>' +
+      '<button class="order-toast-close" type="button" aria-label="Dismiss">&times;</button>';
+    document.body.appendChild(el);
+    function dismiss() { if (el.parentNode) el.parentNode.removeChild(el); }
+    el.querySelector('.order-toast-close').addEventListener('click', dismiss);
+    setTimeout(dismiss, 9000);
+  }
+
+  function handleOrderReturn() {
+    var params;
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    var order = params.get('order');
+    if (!order) return;
+
+    if (order === 'success') {
+      cart = {};
+      persist();
+      render();
+      showToast('Thank you!', 'Your order is confirmed — a receipt is on its way to your email.');
+    } else if (order === 'cancel') {
+      showToast('Checkout canceled', 'No charge was made — your cart is still here when you’re ready.');
+    }
+
+    // Strip the order params so a refresh or shared link doesn't re-fire the toast.
+    params.delete('order');
+    params.delete('session_id');
+    var qs = params.toString();
+    var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+    try { window.history.replaceState({}, document.title, url); } catch (e) { /* no-op */ }
+  }
+
   // ── Add-to-cart buttons (product pages) ────────────────────
   function wireButtons() {
     document.querySelectorAll('.btn-buy[data-product-id]').forEach(function (btn) {
@@ -218,4 +255,5 @@
   buildUI();
   wireButtons();
   render();
+  handleOrderReturn();
 })();
