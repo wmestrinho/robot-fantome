@@ -1,7 +1,7 @@
 /* ============================================================
    robot fantôme — robotfantome.com
-   GitHub profile layout · Cyberpunk cool accents
-   Font: Share Tech Mono · Palette: cool watercolour — teal/blue/violet
+   DIY product-page layout · hard borders + offset shadows
+   Font: Share Tech Mono · Palette: teal/blue/violet
    ============================================================ */
 
 /* ── Custom Properties ─────────────────────────────────────────
@@ -1610,4 +1610,363 @@ footer {
   .mixtape-image,
   .press-photo-lead,
   .ap-logo { opacity: 1 !important; }
+}
+
+/* ============================================================
+   DIY PRODUCT-PAGE LAYOUT
+   Ported from the former diy.recyclopedia.cc visual system:
+   flat paper, hard navy borders, offset shadows, pressed controls.
+   Robot Fantôme content and behavior remain unchanged.
+   ============================================================ */
+
+:root {
+  --color-border: #1e2238;
+  --page-border: #1e2238;
+  --radius: 0;
+  --glow-accent: none;
+  --glow-mid: none;
+  --card-shadow: 0.3rem 0.3rem 0 #1e2238;
+}
+
+body::before {
+  display: none;
+}
+
+.gh-nav {
+  height: auto;
+  min-height: 62px;
+  background: var(--accent);
+  border-bottom: 3px solid var(--color-text);
+}
+
+.gh-nav-inner {
+  max-width: 960px;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.gh-nav-brand,
+.gh-nav-brand:hover,
+.gh-nav-logo,
+.gh-nav-links a,
+.gh-nav-links a:hover,
+.gh-nav-links a.active {
+  color: #fff;
+  text-shadow: none;
+}
+
+.gh-nav-brand {
+  animation: none;
+}
+
+.gh-nav-links a {
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.gh-nav-links a:hover,
+.gh-nav-links a.active {
+  border-color: var(--color-text);
+  background: var(--accent-deep);
+}
+
+.gh-nav-avatar {
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+}
+
+.gh-nav-toggle span {
+  height: 2px;
+  background: #fff;
+}
+
+.gh-layout {
+  max-width: 960px;
+  margin-top: 2.5rem;
+  padding-bottom: 5rem;
+  gap: 2rem;
+}
+
+.gh-layout.show-sidebar {
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.gh-sidebar {
+  top: 82px;
+  border: 2px solid var(--color-text);
+  background: var(--bg-surface);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+}
+
+.gh-avatar-wrap {
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+  box-shadow: 0.2rem 0.2rem 0 var(--color-text);
+}
+
+.gh-avatar,
+.hero-image,
+.gh-panel-image,
+.mixtape-image,
+.press-photo-lead,
+.gallery-image,
+.ap-logo {
+  filter: none;
+}
+
+.gh-main {
+  min-width: 0;
+}
+
+.gh-readme {
+  margin-bottom: 2rem;
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+  box-shadow: 0.45rem 0.45rem 0 var(--color-text);
+}
+
+.gh-readme-header {
+  border-bottom: 2px solid var(--color-text);
+  background: var(--accent);
+}
+
+.gh-readme-label {
+  color: #fff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gh-readme-body {
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-text);
+  color: #fff;
+  padding: clamp(2.5rem, 7vw, 5rem) 1.5rem;
+}
+
+.gh-readme-body::after,
+.hero-title::before,
+.hero-title::after {
+  display: none;
+}
+
+.hero-title {
+  color: #fff;
+  text-shadow: none;
+}
+
+.hero-prefix {
+  color: var(--accent-teal);
+}
+
+.hero-subtitle {
+  color: #c7cbd8;
+}
+
+.resume-block {
+  margin-top: 1.5rem;
+  border: 2px solid var(--color-text);
+  background: var(--bg-surface);
+  box-shadow: var(--card-shadow);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.resume-block .resume-block {
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.gh-panel-body {
+  max-width: 72ch;
+}
+
+.gh-pinned-card,
+.gallery-item,
+.shop-card,
+.mailing-card,
+.press-quote,
+.mixtape-entry,
+.music-player-card,
+.show-card,
+.product-media .gallery-image,
+.product-info,
+.order-toast {
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+  background: var(--bg-surface);
+  box-shadow: var(--card-shadow);
+}
+
+.gh-pinned-card,
+.gallery-item,
+.shop-card,
+.press-quote {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.gh-pinned-card:hover,
+.gallery-item:hover,
+.shop-card:hover,
+.press-quote:hover {
+  border-color: var(--color-text);
+  box-shadow: 0.2rem 0.2rem 0 var(--color-text);
+  transform: translate(0.1rem, 0.1rem);
+}
+
+.gallery-grid,
+.shop-grid,
+.gh-pinned-grid {
+  gap: 1.25rem;
+}
+
+.gallery-item,
+.shop-card {
+  overflow: hidden;
+}
+
+.gallery-image {
+  border-bottom: 2px solid var(--color-text);
+}
+
+.shop-card-body,
+.gallery-caption {
+  padding: 0.85rem 0.9rem 1rem;
+}
+
+.shop-card-name,
+.gh-pinned-name,
+.blog-post-title,
+.product-name {
+  color: var(--accent);
+  text-shadow: none;
+}
+
+.mailing-card {
+  border-color: var(--color-text);
+  padding: 1rem;
+}
+
+.mailing-cta,
+.btn-buy,
+.cart-checkout {
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.mailing-cta:hover,
+.btn-buy:hover:not(:disabled),
+.cart-checkout:hover:not(:disabled) {
+  border-color: var(--color-text);
+  background: var(--accent-deep);
+  color: #fff;
+  box-shadow: 0.2rem 0.2rem 0 var(--color-text);
+  transform: translate(0.1rem, 0.1rem);
+}
+
+.mailing-cta:active,
+.btn-buy:active:not(:disabled),
+.cart-checkout:active:not(:disabled) {
+  box-shadow: none;
+  transform: translate(0.3rem, 0.3rem);
+}
+
+.social-grid a,
+.gh-follow-btn,
+.pay-chip,
+.price-save,
+.product-badge,
+.footer-version {
+  border-color: var(--color-text);
+  border-radius: 0;
+}
+
+.timeline::before {
+  background: var(--accent);
+}
+
+.timeline-entry::before {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.cart-drawer {
+  border-left: 2px solid var(--color-text);
+  box-shadow: -0.4rem 0 0 var(--color-text);
+}
+
+.cart-line-img,
+.cart-inc,
+.cart-dec {
+  border-color: var(--color-text);
+  border-radius: 0;
+}
+
+.product-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.product-detail {
+  gap: 1.5rem;
+}
+
+.product-info {
+  padding: 1.25rem;
+}
+
+footer {
+  border-top: 3px solid var(--accent);
+  background: var(--color-text);
+  color: #a8b4c0;
+}
+
+.footer-inner::before {
+  display: none;
+}
+
+.footer-ap,
+.footer-license,
+.footer-license a {
+  color: #a8b4c0;
+}
+
+.footer-version {
+  color: var(--accent-teal);
+}
+
+@media (max-width: 1000px) {
+  .gh-nav-links.open {
+    top: 62px;
+    background: var(--accent);
+    border-bottom: 3px solid var(--color-text);
+  }
+
+  .gh-nav-links.open a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  }
+}
+
+@media (max-width: 768px) {
+  .gh-layout,
+  .gh-layout.show-sidebar {
+    margin-top: 1.25rem;
+  }
+
+  .gh-sidebar {
+    position: static;
+  }
+
+  .resume-block {
+    box-shadow: 0.2rem 0.2rem 0 var(--color-text);
+  }
 }

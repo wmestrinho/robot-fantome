@@ -18,3 +18,7 @@ node_modules/
 /assets/images/shop/IMG_*
 /assets/images/shop/PNG image*.png
 /assets/images/shop/60139763209__*.JPG
+
+# Local Product Design QA captures
+qa-*.png
+qa-comparison.html
