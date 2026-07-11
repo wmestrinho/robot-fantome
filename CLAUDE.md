@@ -37,10 +37,10 @@ Single-page site with one file per concern:
 Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
 
 - **Brand palette (Absolutely Plausible / Robot Fantôme):** steel-blue, indigo, violet, and teal on cool paper.
-  - `--accent` `#3f7d9c` (AP logo steel-blue, primary) · `--accent-mid` `#4b5fa8` (indigo-blue) · `--accent-deep` `#6a4f9e` (violet) · `--accent-teal` `#5cb0ad` (highlight)
-  - Background: faint cool paper `#eef0f2` · surfaces `#ffffff`, `#f5f6f9` · text `#1e2238` · muted `#5f6480`
+  - `--accent` `#4b5fa8` (indigo-blue, primary) · `--accent-mid` `#3f7d9c` (AP logo steel-blue, secondary) · `--accent-deep` `#6a4f9e` (violet) · `--accent-teal` `#5cb0ad` (highlight)
+  - Background: faint cool paper `#f0f1f6` · surfaces `#ffffff`, `#f6f7fb` · text `#1e2238` · muted `#626887`
 - **Font:** Share Tech Mono throughout — hierarchy via size, letter-spacing, text-transform only
-- **Layout:** CSS Grid, max-width 960px. The former DIY product-page language is canonical: teal top bar, hard navy borders, square corners, offset shadows, and press-on-hover controls. The profile sidebar shows only on Blog & Story.
+- **Layout:** CSS Grid, max-width 960px. The former DIY product-page language is canonical: indigo top bar, teal highlights, hard navy borders, square corners, offset shadows, and press-on-hover controls. The profile sidebar shows only on Blog & Story.
 - **Effects:** no CRT scanlines or glow. Motion is limited to functional hover/press feedback and respects `prefers-reduced-motion`.
 - **Card shadow:** `--card-shadow` is the hard navy offset shadow inherited from the former DIY site.
 

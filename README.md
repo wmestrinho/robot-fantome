@@ -3,8 +3,9 @@
 Music portfolio and creative home of Robot Fantôme / Absolutely Plausible,
 in plain HTML/CSS/JS. No Canva. No build tools. No dependencies. Just our code.
 
-The visual system uses the former DIY Recyclopedia product-page layout: teal top
-bar, hard navy borders, offset shadows, flat cards, and press-on-hover controls.
+The visual system uses the former DIY Recyclopedia product-page layout: indigo
+top bar, teal highlights, hard navy borders, offset shadows, flat cards, and
+press-on-hover controls.
 
 **Live:** [robotfantome.com](https://robotfantome.com)
 

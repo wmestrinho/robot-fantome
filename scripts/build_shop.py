@@ -170,7 +170,7 @@ def product_page(p, currency, worker_url):
   <meta name="robots" content="{'noindex, nofollow' if draft else 'index, follow, max-image-preview:large'}" />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
   <link rel="canonical" href="{url}" />
-  <meta name="theme-color" content="#3f7d9c" />
+  <meta name="theme-color" content="#4b5fa8" />
   <meta property="og:type" content="product" />
   <meta property="og:title" content="{e(name)} — Robot Fantôme" />
   <meta property="og:description" content="{e(meta_desc or tagline or desc)}" />

@@ -1,45 +1,45 @@
 /* ============================================================
    robot fantôme — robotfantome.com
    DIY product-page layout · hard borders + offset shadows
-   Font: Share Tech Mono · Palette: teal/blue/violet
+   Font: Share Tech Mono · Palette: indigo/steel-blue/violet/teal
    ============================================================ */
 
 /* ── Custom Properties ─────────────────────────────────────────
    BRAND PALETTE — Absolutely Plausible / Robot Fantôme
-   Cool watercolour identity: teal → blue → violet, anchored by the
-   AP logo steel-blue. This is the brand standard for every surface.
+   Cool watercolour identity: indigo → steel-blue → violet, with teal
+   highlights. This is the brand standard for every surface.
    ─────────────────────────────────────────────────────────────── */
 :root {
   /* ── Page background — faint cool paper ── */
-  --bg:            #eef0f2;
+  --bg:            #f0f1f6;
 
   /* ── Card surfaces (light) ── */
   --bg-surface:    #ffffff;
-  --bg-card:       #f5f6f9;
-  --bg-overlay:    #e9ebef;
+  --bg-card:       #f6f7fb;
+  --bg-overlay:    #e7e9f2;
 
   /* ── Brand accents — from the watercolour + AP logo ── */
-  --accent:        #3f7d9c;   /* AP logo steel-blue — primary */
-  --accent-mid:    #4b5fa8;   /* watercolour indigo-blue — secondary */
-  --accent-deep:   #6a4f9e;   /* watercolour violet — deepest */
+  --accent:        #4b5fa8;   /* watercolour indigo-blue — primary */
+  --accent-mid:    #3f7d9c;   /* AP logo steel-blue — secondary */
+  --accent-deep:   #6a4f9e;   /* watercolour violet — pressed */
   --accent-teal:   #5cb0ad;   /* watercolour top teal — highlight */
-  --accent-hover:  #5b9bb8;   /* lifted steel-blue for link hover */
+  --accent-hover:  #3f7d9c;   /* AP steel-blue for link/button hover */
 
   /* ── Text & borders (cool dark on light) ── */
   --color-text:    #1e2238;
-  --color-muted:   #5f6480;
-  --color-border:  #d6d8e0;
+  --color-muted:   #626887;
+  --color-border:  #d8daea;
 
   /* ── Aliases (kept for compatibility) ── */
   --page-text:     #1e2238;
-  --page-muted:    #5f6480;
-  --page-border:   #d6d8e0;
-  --color-link:    #3f7d9c;
+  --page-muted:    #626887;
+  --page-border:   #d8daea;
+  --color-link:    #4b5fa8;
 
   --font:          'Share Tech Mono', 'Courier New', monospace;
   --radius:        6px;
-  --glow-accent:   0 0 6px #3f7d9c44, 0 0 18px #3f7d9c1f;
-  --glow-mid:      0 0 6px #4b5fa844, 0 0 18px #4b5fa81f;
+  --glow-accent:   0 0 6px #4b5fa844, 0 0 18px #4b5fa81f;
+  --glow-mid:      0 0 6px #3f7d9c44, 0 0 18px #3f7d9c1f;
   --card-shadow:   0 1px 3px rgba(30,34,56,0.10), 0 0 0 1px var(--color-border);
 }
 
@@ -233,7 +233,7 @@ a:hover { color: var(--accent-hover); }
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--color-border);
-  box-shadow: 0 0 0 1px #3f7d9c33;
+  box-shadow: 0 0 0 1px #4b5fa833;
   aspect-ratio: 1;
 }
 .gh-avatar {
@@ -348,7 +348,7 @@ a:hover { color: var(--accent-hover); }
 }
 .social-grid a:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 8px rgba(63,125,156,0.18);
+  box-shadow: 0 0 8px rgba(75,95,168,0.18);
   transform: translateY(-2px);
 }
 .social-grid img {
@@ -512,7 +512,7 @@ a:hover { color: var(--accent-hover); }
 }
 .gh-pinned-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(63,125,156,0.14), 0 0 0 1px var(--accent);
+  box-shadow: 0 2px 12px rgba(75,95,168,0.14), 0 0 0 1px var(--accent);
 }
 .gh-pinned-name {
   font-size: 0.88rem;
@@ -555,7 +555,7 @@ a:hover { color: var(--accent-hover); }
   text-transform: uppercase;
   line-height: 1.05;
   color: var(--page-text);
-  text-shadow: 0 0 16px #3f7d9c33, 0 0 40px #3f7d9c11;
+  text-shadow: 0 0 16px #4b5fa833, 0 0 40px #4b5fa811;
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
@@ -591,7 +591,7 @@ a:hover { color: var(--accent-hover); }
   border-radius: var(--radius);
   opacity: 0;
   transition: opacity 0.8s ease;
-  box-shadow: 0 0 24px rgba(63,125,156,0.06);
+  box-shadow: 0 0 24px rgba(75,95,168,0.06);
 }
 .hero-image.loaded { opacity: 1; }
 
@@ -716,7 +716,7 @@ a:hover { color: var(--accent-hover); }
 }
 .artist-entry:hover {
   border-left-color: var(--accent);
-  box-shadow: -2px 0 10px rgba(63,125,156,0.18);
+  box-shadow: -2px 0 10px rgba(75,95,168,0.18);
 }
 .artist-name {
   font-size: 0.78rem;
@@ -986,7 +986,7 @@ a.gh-pinned-card {
 }
 .gallery-item:hover {
   border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(63,125,156,0.16), 0 0 0 1px var(--accent);
+  box-shadow: 0 2px 12px rgba(75,95,168,0.16), 0 0 0 1px var(--accent);
   transform: translateY(-2px);
 }
 .gallery-image {
@@ -1030,7 +1030,7 @@ a.gh-pinned-card {
 }
 .shop-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(63,125,156,0.16), 0 0 0 1px var(--accent);
+  box-shadow: 0 2px 12px rgba(75,95,168,0.16), 0 0 0 1px var(--accent);
   transform: translateY(-2px);
 }
 .shop-card .gallery-image { aspect-ratio: 4 / 3; opacity: 1; }
@@ -1136,7 +1136,7 @@ a.gh-pinned-card {
 }
 .mailing-cta:hover {
   background: var(--accent-hover);
-  box-shadow: 0 2px 12px rgba(63,125,156,0.3);
+  box-shadow: 0 2px 12px rgba(75,95,168,0.3);
 }
 
 /* Press / testimonial strip */
@@ -1469,7 +1469,7 @@ a.gh-pinned-card {
 }
 .btn-buy:hover:not(:disabled) {
   background: var(--accent-hover);
-  box-shadow: 0 2px 12px rgba(63,125,156,0.3);
+  box-shadow: 0 2px 12px rgba(75,95,168,0.3);
 }
 .btn-buy:disabled { opacity: 0.6; cursor: default; }
 .product-buy-note,
@@ -1650,7 +1650,9 @@ body::before {
 .gh-nav-logo,
 .gh-nav-links a,
 .gh-nav-links a:hover,
-.gh-nav-links a.active {
+.gh-nav-links a.active,
+.cart-nav-btn,
+.cart-nav-btn:hover {
   color: #fff;
   text-shadow: none;
 }
@@ -1938,6 +1940,19 @@ footer {
 .footer-license,
 .footer-license a {
   color: #a8b4c0;
+}
+
+footer .trust-lock {
+  fill: var(--accent-teal);
+}
+
+footer .trust-text {
+  color: #d8dde5;
+}
+
+footer .pay-chip {
+  color: #fff;
+  border-color: #a8b4c0;
 }
 
 .footer-version {
