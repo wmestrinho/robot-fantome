@@ -36,20 +36,6 @@ AVAILABILITY = {
     "in-stock": "https://schema.org/InStock",
 }
 
-# Footer trust row (path-independent: inline SVG + text chips, no image files).
-# Kept byte-identical to the copy spliced into index.html so the look is uniform.
-TRUST_BADGES = (
-    '<div class="trust-badges" aria-label="Secure checkout and accepted payment methods">\n'
-    '        <svg class="trust-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 0 1 6 0v3H9z"/></svg>\n'
-    '        <span class="trust-text">Secure checkout via Stripe</span>\n'
-    '        <span class="pay-chip">Visa</span>\n'
-    '        <span class="pay-chip">Mastercard</span>\n'
-    '        <span class="pay-chip">Amex</span>\n'
-    '        <span class="pay-chip">Apple&nbsp;Pay</span>\n'
-    '      </div>'
-)
-
-
 def e(text):
     """HTML-escape (and keep the result safe inside attributes too)."""
     return html.escape(str(text), quote=True)
@@ -143,6 +129,10 @@ def product_page(p, currency, worker_url):
         if draft else ""
     )
     badge_html = f'<span class="product-badge">{e(badge)}</span>' if badge else ""
+    print_note = (
+        '\n        <p class="product-buy-note">Archival print only; original artwork stays in the artist archive.</p>'
+        if p.get("type") == "print-made-to-order" else ""
+    )
 
     if local_pickup:
         subject = urllib.parse.quote(f"Shop enquiry — {name}")
@@ -156,8 +146,7 @@ def product_page(p, currency, worker_url):
         buy_html = (
             f'<button class="btn-buy" data-product-id="{e(pid)}" data-qty="1">'
             f'Add to cart &mdash; {e(price_label)}</button>\n'
-            '        <p class="product-buy-note">Secure checkout via Stripe. '
-            'Card details never touch this site.</p>'
+            '        <p class="product-buy-note">No payment is collected on this page.</p>'
         )
 
     return f"""<!DOCTYPE html>
@@ -213,7 +202,7 @@ def product_page(p, currency, worker_url):
         <h1 class="product-name">{e(name)}</h1>
         <p class="product-tagline">{e(tagline)}</p>
         <p class="product-price">{price_spans(p)}</p>
-        <p class="product-description">{e(desc)}</p>
+        <p class="product-description">{e(desc)}</p>{print_note}
         {buy_html}{draft_banner}
       </div>
     </article>
@@ -225,7 +214,6 @@ def product_page(p, currency, worker_url):
         <img src="../assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
-      {TRUST_BADGES}
       <p class="footer-license">
         Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>

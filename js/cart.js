@@ -102,7 +102,7 @@
       '<div class="cart-body"></div>' +
       '<div class="cart-foot">' +
         '<div class="cart-subtotal"><span>Subtotal</span><span class="cart-subtotal-val">$0</span></div>' +
-        '<p class="cart-note">Shipping &amp; taxes calculated at checkout. Every item is re-priced server-side.</p>' +
+        '<p class="cart-note">Cart total excludes shipping and taxes.</p>' +
         '<button class="btn-buy cart-checkout" type="button" disabled>Checkout</button>' +
         '<p class="cart-msg" role="status"></p>' +
       '</div>';
@@ -198,7 +198,7 @@
       .catch(function () {
         checkoutBtn.disabled = false;
         checkoutBtn.textContent = original;
-        if (msgEl) msgEl.textContent = 'Checkout is coming soon — email absolutelyplausible@gmail.com to buy now.';
+        if (msgEl) msgEl.textContent = 'Online checkout is unavailable right now — email absolutelyplausible@gmail.com to buy.';
       });
   }
 
