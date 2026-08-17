@@ -18,20 +18,6 @@ To preview locally, just open `index.html` in a browser, or use any static file 
 python3 -m http.server 8080
 ```
 
-## Architecture
-
-Single-page site with one file per concern:
-
-| File | Role |
-|---|---|
-| `index.html` | All content and structure (single page, 3 tabs; Music Press-Kit is the home tab) |
-| `css/style.css` | All styles — former DIY product-page layout adapted to Robot Fantôme |
-| `js/main.js` | Tab switching, pinned card clicks, mobile nav toggle, image fade-in |
-| `assets/images/` | Photos and artwork (CC BY-NC 4.0 licensed) |
-| `assets/icons/` | SVG social media icons |
-| `assets/favicon.png` | Site favicon (Absolutely Plausible logo) |
-| `VERSION` | Single source of truth for version number (displayed in footer) |
-
 ## Design System
 
 Defined entirely via CSS custom properties in `:root` inside `css/style.css`:
