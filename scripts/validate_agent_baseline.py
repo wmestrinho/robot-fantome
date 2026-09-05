@@ -17,7 +17,7 @@ require(ROOT / "VERSION", "VERSION")
 
 if (ROOT / "VERSION").exists():
     version = (ROOT / "VERSION").read_text(errors="replace").strip().splitlines()[0].strip()
-    if not re.fullmatch(r"v\d+\.\d+\.\d+(?: (?:alpha|beta|rc))?", version):
+    if not re.fullmatch(r"\d+\.\d+\.\d+(?:-(?:alpha|beta|rc)\.\d+)?", version):
         errors.append(f"VERSION has invalid format: {version!r}")
 
 readme = ROOT / "README.md"

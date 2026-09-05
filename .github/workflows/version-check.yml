@@ -1,0 +1,26 @@
+name: Version Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if VERSION was bumped
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -qvE '\.(md|txt)$|^docs/|^\.github/'; then
+            if ! echo "$CHANGED_FILES" | grep -q '^VERSION$'; then
+              echo "::error::Source files changed but VERSION was not bumped. See PROJECT-RULES.md."
+              exit 1
+            fi
+          fi

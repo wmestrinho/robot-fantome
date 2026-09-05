@@ -38,4 +38,4 @@ Content is split into 3 tabs (`.gh-panel`), switched by the top nav and pinned c
 
 - No npm, no bundlers, no frameworks — keep it that way.
 - All images carry CC BY-NC 4.0 licensing; preserve attribution notices in HTML.
-- Version number lives in `VERSION` file — update both `VERSION` and the footer `<p class="footer-version">` on every meaningful change.
+- Versioning, CHANGELOG, LICENSE, and CI conventions: see `ap-ops-workspace/PROJECT-RULES.md`.

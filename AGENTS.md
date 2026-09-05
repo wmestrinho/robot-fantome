@@ -19,10 +19,7 @@ Required baseline for AI agents
 - Run validation before commit.
 
 Version rule
-- Single source of truth: `VERSION` unless this repo already documents another version source in `README.md` or `CLAUDE.md`.
-- Current version: read it from `VERSION` — do not trust hardcoded version strings in docs.
-- Web UIs must visibly display the version (site footer).
-- Bump version for behavior/UI changes.
+- Versioning, CHANGELOG, LICENSE, and CI conventions: see `ap-ops-workspace/PROJECT-RULES.md`.
 
 Deployment
 - GitHub Pages from `main` (root path, no build step). `CNAME` sets the custom domain; Cloudflare provides DNS/CDN in front.
