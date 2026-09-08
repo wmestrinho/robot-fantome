@@ -892,6 +892,69 @@ a.gh-pinned-card {
   background: var(--accent-hover);
   box-shadow: 0 2px 12px rgba(75,95,168,0.3);
 }
+.mailing-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.mailing-input {
+  flex: 1 1 14rem;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--page-text);
+  background: var(--bg-surface);
+  border: 2px solid var(--color-text);
+  border-radius: 0;
+  padding: 0.45rem 0.7rem;
+}
+.mailing-input:focus {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 1px;
+}
+.mailing-input::placeholder { color: var(--color-muted); }
+.mailing-form .mailing-cta {
+  font-family: inherit;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.mailing-cta:disabled { opacity: 0.7; cursor: default; }
+/* honeypot — real users never see it */
+.mailing-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.mailing-msg {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  color: var(--accent-deep);
+}
+.mailing-msg:empty { display: none; }
+.mailing-msg.is-error { color: #a83a4b; }
+.mailing-note {
+  font-size: 0.62rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+.mailing-note a { color: var(--color-muted); text-decoration: underline; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Press / testimonial strip */
 

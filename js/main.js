@@ -41,6 +41,55 @@
     });
   }
 
+  // ── Mailing-list form → Worker /subscribe (mailto: is the no-JS fallback) ──
+  var form = document.querySelector('.mailing-form');
+  if (form) {
+    var workerMeta = document.querySelector('meta[name="shop-worker-url"]');
+    var workerUrl = (workerMeta && workerMeta.content) || '';
+    var emailEl = form.querySelector('input[name="email"]');
+    var hpEl    = form.querySelector('input[name="website"]');
+    var msgEl   = form.parentNode.querySelector('.mailing-msg');
+    var btn     = form.querySelector('button[type="submit"]');
+
+    function say(text, isError) {
+      if (!msgEl) return;
+      msgEl.textContent = text;
+      msgEl.classList.toggle('is-error', !!isError);
+    }
+
+    form.addEventListener('submit', function (e) {
+      if (!workerUrl || !window.fetch) return; // let the mailto: fallback run
+      e.preventDefault();
+      var email = (emailEl && emailEl.value || '').trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        say('Please enter a valid email address.', true);
+        if (emailEl) emailEl.focus();
+        return;
+      }
+      var original = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+      say('');
+      fetch(workerUrl + '/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, website: hpEl ? hpEl.value : '' })
+      })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+        .then(function (res) {
+          if (!res.ok || !res.data || !res.data.ok) {
+            throw new Error((res.data && res.data.error) || 'subscribe failed');
+          }
+          form.hidden = true;
+          say('You\u2019re on the list \u2014 thank you. Watch your inbox for the next drop.');
+        })
+        .catch(function (err) {
+          if (btn) { btn.disabled = false; btn.textContent = original; }
+          var reason = err && err.message && /valid email|Too many/.test(err.message) ? err.message : '';
+          say(reason || 'Signup is unavailable right now \u2014 email absolutelyplausible@gmail.com with the subject \u201csubscribe\u201d and we\u2019ll add you.', true);
+        });
+    });
+  }
+
   // ── Tabs (index.html only) ──────────────────────────────────
   var panels = document.querySelectorAll('.gh-panel');
   if (!panels.length) return;

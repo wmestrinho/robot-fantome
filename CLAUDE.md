@@ -28,7 +28,7 @@ python3 -m http.server 8080
 | `scripts/build_shop.py` | Local authoring tool (stdlib only). Regenerates product pages, `js/shop-catalog.js`, the two card blocks in `index.html`, the footer version on every page, and `sitemap.xml`. `--check` exits 1 if anything is stale. |
 | `privacy.html`, `terms.html` | Legal pages; share the nav/footer chrome with the product pages. |
 | `css/style.css` | All styles. Tokens in `:root`; DIY product-page layout (hard borders, offset shadows). |
-| `js/main.js` | Every page: image fade-in, mobile nav toggle, footer year. Tab switching only runs when `.gh-panel`s exist (index). |
+| `js/main.js` | Every page: image fade-in, mobile nav toggle, footer year, mailing-list form → Worker `/subscribe`. Tab switching only runs when `.gh-panel`s exist (index). |
 | `js/cart.js` | localStorage cart drawer + nav button; POSTs `{items}` to the Worker `/checkout`. Display-only — the Worker re-prices. |
 | `js/shop-catalog.js` | `window.RF_CATALOG` — **generated**. |
 | `VERSION` | Single source of truth for the version (bare SemVer, e.g. `4.9.0-beta.1`). |

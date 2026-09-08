@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.10.0-beta.1] - 2026-09-08
+### Added
+- Mailing-list signup form on the home tab, posting to the Worker's new `POST /subscribe` (honeypot + rate cap on the Worker side). Falls back to a mailto: form without JavaScript.
+
+### Changed
+- Privacy notice: mailing-list section now describes the subscriber list we keep (Cloudflare KV) and how to leave; effective date moved to 2026-09-08.
+- Events timeline: DJ Pallet Table dated July 2026 (no longer "in progress").
+
 ## [4.9.2-beta.1] - 2026-09-08
 ### Changed
 - Switching to a tab now loads that tab's images immediately instead of waiting on the browser's lazy-load timer (other tabs stay lazy).

@@ -309,7 +309,14 @@
           </div>
           <div class="mailing-card" data-subscribe>
             <p class="mailing-pitch">Join the mailing list for product drops, releases, and show dates.</p>
-            <a class="mailing-cta" href="mailto:absolutelyplausible@gmail.com?subject=subscribe&amp;body=Add%20me%20to%20the%20Robot%20Fant%C3%B4me%20mailing%20list.">Subscribe by email &rarr;</a>
+            <form class="mailing-form" action="mailto:absolutelyplausible@gmail.com?subject=subscribe" method="post" novalidate>
+              <label class="visually-hidden" for="mailing-email">Email address</label>
+              <input class="mailing-input" id="mailing-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+              <input class="mailing-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="mailing-cta" type="submit">Subscribe &rarr;</button>
+            </form>
+            <p class="mailing-msg" role="status" aria-live="polite"></p>
+            <p class="mailing-note">One email per drop or show, from us only. Reply to any of them to leave. <a href="privacy.html">Privacy</a>.</p>
           </div>
         </div>
 
@@ -781,9 +788,9 @@
                 <span class="timeline-company">DJ Pallet Table</span>
                 <span class="timeline-location">Commission Beer Chamber, Orlando</span>
               </div>
-              <div class="timeline-dates">2026 / May &middot; in progress</div>
+              <div class="timeline-dates">2026 / Jul</div>
               <ul class="timeline-bullets">
-                <li>DJ Pallet Table at the Commission Beer Chamber &mdash; nine years after the first pallet stage. Same material, same hands.</li>
+                <li>DJ Pallet Table for the Commission Beer Chamber, first week of July &mdash; nine years after the first pallet stage. Same material, same hands.</li>
                 <li>With Benny &amp; Juni Ali</li>
               </ul>
             </li>
@@ -1162,7 +1169,7 @@
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
         &mdash; <a href="./privacy.html">privacy</a> &middot; <a href="./terms.html">shop terms</a>
       </p>
-      <p class="footer-version">v4.9.2-beta.1</p>
+      <p class="footer-version">v4.10.0-beta.1</p>
     </div>
   </footer>
   <!-- chrome:footer:end -->
