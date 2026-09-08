@@ -16,7 +16,8 @@ Reads shop/products.json + VERSION, then:
   4. Splices the shared header and footer into index.html, privacy.html, terms.html
      between <!-- chrome:nav:start/end --> and <!-- chrome:footer:start/end --> (the
      product pages get the same chrome inline), stamping `v<VERSION>` into the footer
-     so the VERSION file stays the single source of truth.
+     and `?v=<VERSION>` onto every css/ and js/ URL (cache-busting: a new release always
+     fetches fresh CSS/JS), so the VERSION file stays the single source of truth.
   5. Writes sitemap.xml — home, legal pages, and every non-draft product page, with
      <lastmod> taken from each file's last git commit (today if the file is modified).
 
@@ -288,7 +289,7 @@ def product_page(p, currency, worker_url, version):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/style.css?v={e(version)}" />
   <script type="application/ld+json">
 {schema_json}
   </script>
@@ -315,9 +316,9 @@ def product_page(p, currency, worker_url, version):
 
 {footer_html("../", version)}
 
-  <script src="../js/main.js"></script>
-  <script src="../js/shop-catalog.js"></script>
-  <script src="../js/cart.js"></script>
+  <script src="../js/main.js?v={e(version)}"></script>
+  <script src="../js/shop-catalog.js?v={e(version)}"></script>
+  <script src="../js/cart.js?v={e(version)}"></script>
 </body>
 </html>
 """
@@ -397,6 +398,8 @@ def splice(text, start, end, block, indent="        "):
 
 
 VERSION_RE = re.compile(r'<p class="footer-version">[^<]*</p>')
+# href="css/x.css" / src="js/x.js" (with or without an existing ?v=…) → stamped with the version
+ASSET_RE = re.compile(r'((?:href|src)="(?:\./)?(?:css|js)/[\w.-]+\.(?:css|js))(?:\?[^"]*)?"')
 
 
 def main():
@@ -450,6 +453,7 @@ def main():
                 print(f"  ! {relpath}: missing {start} / {end} markers — chrome left as-is")
             else:
                 new = spliced
+        new = ASSET_RE.sub(lambda m: f'{m.group(1)}?v={version}"', new)
         if not VERSION_RE.search(new):
             print(f"  ! {relpath}: no <p class=\"footer-version\"> to stamp")
         new = VERSION_RE.sub(f'<p class="footer-version">v{e(version)}</p>', new)

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.10.2-beta.1] - 2026-09-08
+### Fixed
+- Stylesheet and script URLs carry `?v=<VERSION>` on every page, so a new release no longer runs with a browser- or CDN-cached old `style.css` / `main.js`.
+
 ## [4.10.1-beta.1] - 2026-09-08
 ### Fixed
 - Mailing-list form now actually disappears after a successful signup (the flex rule was overriding the `hidden` attribute).
