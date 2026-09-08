@@ -1,4 +1,7 @@
-/* robot fantôme — main.js */
+/* robot fantôme — main.js
+   Loaded by every page (index, product pages, privacy, terms).
+   Shared: image fade-in, mobile nav toggle, footer year.
+   Tab switching only wires up when the page has .gh-panel tabs (index.html). */
 
 (function () {
   'use strict';
@@ -14,11 +17,36 @@
     }
   });
 
-  // ── Tab switching ───────────────────────────────────────────
-  var navLinks = document.querySelectorAll('.gh-nav-links a[data-tab]');
-  var panels   = document.querySelectorAll('.gh-panel');
+  // ── Footer © year ───────────────────────────────────────────
+  document.querySelectorAll('.footer-year').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
 
-  var layout = document.querySelector('.gh-layout');
+  // ── Mobile nav toggle ───────────────────────────────────────
+  var toggle = document.querySelector('.gh-nav-toggle');
+  var navEl  = document.querySelector('.gh-nav-links');
+
+  function closeMenu() {
+    if (navEl)  navEl.classList.remove('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (toggle && navEl) {
+    toggle.addEventListener('click', function () {
+      var open = navEl.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
+  // ── Tabs (index.html only) ──────────────────────────────────
+  var panels = document.querySelectorAll('.gh-panel');
+  if (!panels.length) return;
+
+  var navLinks = document.querySelectorAll('.gh-nav-links a[data-tab]');
+  var layout   = document.querySelector('.gh-layout');
 
   function activateTab(target, push) {
     navLinks.forEach(function (a) {
@@ -64,7 +92,7 @@
   });
 
   // ── Pinned cards → switch to their tab ─────────────────────
-  document.querySelectorAll('.gh-pinned-card').forEach(function (card) {
+  document.querySelectorAll('.gh-pinned-card[data-tab]').forEach(function (card) {
     card.addEventListener('click', function () {
       activateTab(card.dataset.tab);
     });
@@ -75,24 +103,9 @@
     link.addEventListener('click', function (e) {
       e.preventDefault();
       activateTab(link.dataset.tab);
-      // close mobile menu
-      var navEl  = document.querySelector('.gh-nav-links');
-      var toggle = document.querySelector('.gh-nav-toggle');
-      if (navEl)   navEl.classList.remove('open');
-      if (toggle)  toggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     });
   });
-
-  // ── Mobile nav toggle ───────────────────────────────────────
-  var toggle = document.querySelector('.gh-nav-toggle');
-  var navEl  = document.querySelector('.gh-nav-links');
-
-  if (toggle && navEl) {
-    toggle.addEventListener('click', function () {
-      var open = navEl.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
 
   // ── Brand logo → return home (music) ───────────────────────
   var brand = document.querySelector('.gh-nav-brand');
@@ -100,6 +113,7 @@
     brand.addEventListener('click', function (e) {
       e.preventDefault();
       activateTab('music');
+      closeMenu();
     });
   }
 

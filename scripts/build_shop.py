@@ -1,26 +1,36 @@
 #!/usr/bin/env python3
-"""Generate the Robot Fantôme shop from shop/products.json.
+"""Generate the Robot Fantôme shop and keep the site's shared chrome in sync.
 
 This is a *local authoring tool*, not a server build step — it writes plain
-static HTML that ships as-is (keeps the zero-dependency / zero-build ethos).
+static files that ship as-is (keeps the zero-dependency / zero-build ethos).
 
-It does two things:
+Reads shop/products.json + VERSION, then:
   1. Writes one crawlable static page per product:  shop/<id>.html
-     (own <title>, canonical, Open Graph, and Product JSON-LD for SEO).
-  2. Splices the Shop-tab product cards into index.html, between the markers
-     <!-- shop:cards:start --> and <!-- shop:cards:end -->.
+     (own <title>, canonical, Open Graph, Product JSON-LD, shared nav + footer).
+  2. Writes js/shop-catalog.js (window.RF_CATALOG) for the cart drawer — display only;
+     the checkout Worker re-prices every line server-side.
+  3. Splices product cards into index.html:
+       Shop tab       → between <!-- shop:cards:start -->    and <!-- shop:cards:end -->
+       Home preview   → between <!-- shop:featured:start --> and <!-- shop:featured:end -->
+                        (products with "featured": true, in catalog order)
+  4. Stamps `v<VERSION>` into every <p class="footer-version"> (index, privacy, terms,
+     product pages) so the VERSION file stays the single source of truth.
+  5. Writes sitemap.xml — home, legal pages, and every non-draft product page, with
+     <lastmod> taken from each file's last git commit (today if the file is modified).
 
 Usage:
     python3 scripts/build_shop.py          # regenerate everything
-    python3 scripts/build_shop.py --check  # fail if output would change (CI/pre-commit)
+    python3 scripts/build_shop.py --check  # exit 1 if any output would change (CI/pre-commit)
 
 Stdlib only. Run from anywhere; paths are resolved relative to the repo root.
 """
 
+import datetime
 import html
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.parse
 
@@ -29,6 +39,11 @@ SITE = "https://robotfantome.com"
 
 CARD_START = "<!-- shop:cards:start -->"
 CARD_END = "<!-- shop:cards:end -->"
+FEATURED_START = "<!-- shop:featured:start -->"
+FEATURED_END = "<!-- shop:featured:end -->"
+
+# Pages (besides the generated product pages) whose footer version is kept in sync.
+VERSIONED_PAGES = ["index.html", "privacy.html", "terms.html"]
 
 AVAILABILITY = {
     "sold-out": "https://schema.org/SoldOut",
@@ -36,9 +51,46 @@ AVAILABILITY = {
     "in-stock": "https://schema.org/InStock",
 }
 
+LOGO_SVG = (
+    '<svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true">'
+    '<path fill="currentColor" d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 '
+    '2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723'
+    'L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 '
+    '0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75'
+    '.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 '
+    '0-.006.002-.009.004Z"/></svg>'
+)
+
+
 def e(text):
     """HTML-escape (and keep the result safe inside attributes too)."""
     return html.escape(str(text), quote=True)
+
+
+def read_version():
+    """VERSION file → bare SemVer string (a leading 'v' is tolerated and stripped)."""
+    with open(os.path.join(REPO, "VERSION"), encoding="utf-8") as f:
+        v = f.read().strip().splitlines()[0].strip()
+    return v[1:] if v.startswith("v") else v
+
+
+def git_lastmod(relpath):
+    """ISO date of the file's last commit; today if it has uncommitted changes or git is unavailable."""
+    today = datetime.date.today().isoformat()
+    try:
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain", "--", relpath],
+            cwd=REPO, capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+        if dirty:
+            return today
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", relpath],
+            cwd=REPO, capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+        return out or today
+    except Exception:
+        return today
 
 
 def fmt_usd(v):
@@ -51,7 +103,7 @@ def fmt_usd(v):
 def price_spans(p):
     """Sale-aware price markup: optional struck-through compare-at + sale price (+ % off).
 
-    Renders just the price price <span>s; the caller wraps them in .product-price /
+    Renders just the price <span>s; the caller wraps them in .product-price /
     .shop-card-price. `compare_at_usd` (optional) is the original price shown struck
     through when it is higher than `price_usd`.
     """
@@ -88,7 +140,57 @@ def resolve_image(p, prefix=""):
     return prefix + img
 
 
-def product_page(p, currency, worker_url):
+# ── Shared chrome (nav + footer) ──────────────────────────────────────────────
+# `root` is the relative path back to the site root ("../" from /shop/, "./" at root).
+
+def nav_html(root, active=None):
+    def link(tab, label):
+        href = root if tab == "music" else f"{root}#{tab}"
+        attrs = ' class="active" aria-current="page"' if tab == active else ""
+        return f'        <a href="{href}"{attrs}>{label}</a>'
+
+    return f"""  <header class="gh-nav">
+    <div class="gh-nav-inner">
+      <a href="{root}" class="gh-nav-brand" aria-label="robot fantôme home">
+        {LOGO_SVG}
+        <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
+      </a>
+
+      <nav class="gh-nav-links" aria-label="Site navigation">
+{link("music", "music press-kit")}
+{link("shop", "shop")}
+{link("blog", "blog")}
+{link("mixtape", "mix-tape")}
+        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
+      </nav>
+
+      <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>"""
+
+
+def footer_html(root, version):
+    return f"""  <footer>
+    <div class="footer-inner">
+      <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="footer-ap" aria-label="Absolutely Plausible — official site">
+        <img src="{root}assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
+        <span>an Absolutely Plausible production</span>
+      </a>
+      <p class="footer-license">
+        Photos &amp; artwork &copy; <span class="footer-year">{datetime.date.today().year}</span> robot fant&ocirc;me &mdash;
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+        &mdash; <a href="{root}privacy.html">privacy</a> &middot; <a href="{root}terms.html">shop terms</a>
+      </p>
+      <p class="footer-version">v{e(version)}</p>
+    </div>
+  </footer>"""
+
+
+# ── Product pages ─────────────────────────────────────────────────────────────
+
+def product_page(p, currency, worker_url, version):
     """Full standalone HTML for one product page (lives at shop/<id>.html)."""
     pid = p["id"]
     name = p["name"]
@@ -158,15 +260,22 @@ def product_page(p, currency, worker_url):
   <meta name="description" content="{e(meta_desc or tagline or desc)}" />
   <meta name="robots" content="{'noindex, nofollow' if draft else 'index, follow, max-image-preview:large'}" />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/favicon.png" />
   <link rel="canonical" href="{url}" />
   <meta name="theme-color" content="#4b5fa8" />
   <meta property="og:type" content="product" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="{e(name)} — Robot Fantôme" />
   <meta property="og:description" content="{e(meta_desc or tagline or desc)}" />
   <meta property="og:url" content="{url}" />
   <meta property="og:image" content="{img_abs}" />
+  <meta property="og:image:alt" content="{e(name)}" />
   <meta property="og:site_name" content="Robot Fantôme" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@robotfantome" />
+  <meta name="twitter:title" content="{e(name)} — Robot Fantôme" />
+  <meta name="twitter:description" content="{e(meta_desc or tagline or desc)}" />
+  <meta name="twitter:image" content="{img_abs}" />
   <meta name="shop-worker-url" content="{e(worker_url)}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -177,19 +286,7 @@ def product_page(p, currency, worker_url):
   </script>
 </head>
 <body>
-  <header class="gh-nav">
-    <div class="gh-nav-inner">
-      <a href="../" class="gh-nav-brand" aria-label="robot fantôme home">
-        <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
-      </a>
-      <nav class="gh-nav-links" aria-label="Site navigation">
-        <a href="../">music press-kit</a>
-        <a href="../#shop">shop</a>
-        <a href="../#blog">blog</a>
-        <a href="../#mixtape">mix-tape</a>
-      </nav>
-    </div>
-  </header>
+{nav_html("../", active="shop")}
 
   <main class="gh-main product-page">
     <p class="product-breadcrumb"><a href="../#shop">&larr; back to shop</a></p>
@@ -208,19 +305,9 @@ def product_page(p, currency, worker_url):
     </article>
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="footer-ap" aria-label="Absolutely Plausible — official site">
-        <img src="../assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
-        <span>an Absolutely Plausible production</span>
-      </a>
-      <p class="footer-license">
-        Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
-        <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-      </p>
-    </div>
-  </footer>
+{footer_html("../", version)}
 
+  <script src="../js/main.js"></script>
   <script src="../js/shop-catalog.js"></script>
   <script src="../js/cart.js"></script>
 </body>
@@ -229,14 +316,14 @@ def product_page(p, currency, worker_url):
 
 
 def card(p):
-    """One product card for the Shop tab in index.html (root-relative paths)."""
+    """One product card for index.html (root-relative paths)."""
     pid = p["id"]
     name = p["name"]
     tagline = p.get("tagline", "")
     img = resolve_image(p)
     badge = p.get("badge")
-    badge_html = f'\n        <span class="product-badge">{e(badge)}</span>' if badge else ""
-    draft_html = '\n        <span class="shop-card-draft">draft</span>' if p.get("draft") else ""
+    badge_html = f'\n            <span class="product-badge">{e(badge)}</span>' if badge else ""
+    draft_html = '\n            <span class="shop-card-draft">draft</span>' if p.get("draft") else ""
     return f"""        <a class="shop-card" href="shop/{e(pid)}.html">
           <img src="{e(img)}" alt="{e(name)}" class="gallery-image" width="800" height="600" loading="lazy" decoding="async" />
           <div class="shop-card-body">{badge_html}{draft_html}
@@ -268,6 +355,42 @@ def catalog_js(products):
     return "window.RF_CATALOG = " + json.dumps(cat, ensure_ascii=False, indent=2) + ";\n"
 
 
+def sitemap_xml(products):
+    """sitemap.xml: home + legal pages + every non-draft product page."""
+    rows = [
+        ("", "index.html", "weekly", "1.0"),
+        ("privacy.html", "privacy.html", "yearly", "0.3"),
+        ("terms.html", "terms.html", "yearly", "0.3"),
+    ]
+    for p in products:
+        if not p.get("draft"):
+            rows.append((f"shop/{p['id']}.html", f"shop/{p['id']}.html", "monthly", "0.7"))
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, path, freq, prio in rows:
+        out += [
+            "  <url>",
+            f"    <loc>{SITE}/{e(loc)}</loc>",
+            f"    <lastmod>{git_lastmod(path)}</lastmod>",
+            f"    <changefreq>{freq}</changefreq>",
+            f"    <priority>{prio}</priority>",
+            "  </url>",
+        ]
+    out.append("</urlset>")
+    return "\n".join(out) + "\n"
+
+
+def splice(text, start, end, block, indent="        "):
+    """Replace everything between two marker comments (inclusive) with `block`."""
+    pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
+    if not pattern.search(text):
+        return None
+    return pattern.sub(lambda _: f"{start}\n{block}\n{indent}{end}", text)
+
+
+VERSION_RE = re.compile(r'<p class="footer-version">[^<]*</p>')
+
+
 def main():
     check = "--check" in sys.argv
     with open(os.path.join(REPO, "shop", "products.json"), encoding="utf-8") as f:
@@ -275,45 +398,49 @@ def main():
     currency = data.get("currency", "USD")
     worker_url = data.get("worker_url", "")
     products = data["products"]
+    version = read_version()
 
     changed = []
 
-    # 1. product pages
-    for p in products:
-        path = os.path.join(REPO, "shop", f"{p['id']}.html")
-        new = product_page(p, currency, worker_url)
+    def emit(relpath, new):
+        path = os.path.join(REPO, relpath)
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None
         if new != old:
-            changed.append(os.path.relpath(path, REPO))
+            changed.append(relpath)
             if not check:
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(new)
 
-    # 1b. shop catalog for the cart (window.RF_CATALOG)
-    catalog_path = os.path.join(REPO, "js", "shop-catalog.js")
-    new_cat = catalog_js(products)
-    old_cat = open(catalog_path, encoding="utf-8").read() if os.path.exists(catalog_path) else None
-    if new_cat != old_cat:
-        changed.append(os.path.relpath(catalog_path, REPO))
-        if not check:
-            with open(catalog_path, "w", encoding="utf-8") as f:
-                f.write(new_cat)
+    # 1. product pages
+    for p in products:
+        emit(f"shop/{p['id']}.html", product_page(p, currency, worker_url, version))
 
-    # 2. splice cards into index.html
-    index_path = os.path.join(REPO, "index.html")
-    index = open(index_path, encoding="utf-8").read()
-    cards = "\n".join(card(p) for p in products)
-    block = f"{CARD_START}\n{cards}\n        {CARD_END}"
-    pattern = re.compile(re.escape(CARD_START) + r".*?" + re.escape(CARD_END), re.DOTALL)
-    if not pattern.search(index):
-        print(f"ERROR: card markers not found in index.html — add:\n  {CARD_START}\n  {CARD_END}")
-        return 2
-    new_index = pattern.sub(lambda _: block, index)
-    if new_index != index:
-        changed.append("index.html")
-        if not check:
-            with open(index_path, "w", encoding="utf-8") as f:
-                f.write(new_index)
+    # 2. shop catalog for the cart (window.RF_CATALOG)
+    emit("js/shop-catalog.js", catalog_js(products))
+
+    # 3. cards spliced into index.html (+ 4. footer version on every versioned page)
+    for relpath in VERSIONED_PAGES:
+        path = os.path.join(REPO, relpath)
+        text = open(path, encoding="utf-8").read()
+        new = text
+        if relpath == "index.html":
+            new = splice(new, CARD_START, CARD_END, "\n".join(card(p) for p in products))
+            if new is None:
+                print(f"ERROR: card markers not found in index.html — add:\n  {CARD_START}\n  {CARD_END}")
+                return 2
+            featured = [p for p in products if p.get("featured") and not p.get("draft")]
+            spliced = splice(new, FEATURED_START, FEATURED_END, "\n".join(card(p) for p in featured))
+            if spliced is None:
+                print(f"  ! index.html has no {FEATURED_START} / {FEATURED_END} markers — home preview left as-is")
+            else:
+                new = spliced
+        if not VERSION_RE.search(new):
+            print(f"  ! {relpath}: no <p class=\"footer-version\"> to stamp")
+        new = VERSION_RE.sub(f'<p class="footer-version">v{e(version)}</p>', new)
+        emit(relpath, new)
+
+    # 5. sitemap
+    emit("sitemap.xml", sitemap_xml(products))
 
     if check:
         if changed:

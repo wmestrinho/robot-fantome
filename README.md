@@ -30,14 +30,30 @@ auto-deploys — there is no build step; the repo root is served as-is.
 
 ## Version
 
-Single source of truth: the `VERSION` file. The same string is displayed in
-the site footer (`<p class="footer-version">` in `index.html`). Bump both on
-every meaningful change. Do not trust hardcoded version strings in docs.
+Single source of truth: the `VERSION` file (bare SemVer, e.g. `4.9.0-beta.1`).
+`scripts/build_shop.py` stamps `v<VERSION>` into the footer of every page
+(`index.html`, `privacy.html`, `terms.html`, and each `shop/*.html`), so bump
+`VERSION`, add a CHANGELOG entry, and rerun the generator. Do not trust
+hardcoded version strings in docs.
+
+## Shop & generated files
+
+`shop/products.json` is the source of truth for the shop. After editing it (or
+`VERSION`), run:
+
+```sh
+python3 scripts/build_shop.py
+```
+
+It rewrites `shop/<id>.html`, `js/shop-catalog.js`, the product-card blocks in
+`index.html`, every footer version, and `sitemap.xml`. Never hand-edit those.
+Checkout is handled by the separate `shop-api` Cloudflare Worker.
 
 ## Validation
 
 ```sh
 python3 scripts/validate_agent_baseline.py
+python3 scripts/build_shop.py --check   # exit 1 if generated files are stale
 ```
 
 ---

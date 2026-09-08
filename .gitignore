@@ -22,3 +22,9 @@ node_modules/
 # Local Product Design QA captures
 qa-*.png
 qa-comparison.html
+
+# Python bytecode from scripts/
+__pycache__/
+
+# Raw certificate scans (14 MB each; web versions live in assets/docs + assets/images)
+/assets/docs/originals/

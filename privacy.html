@@ -6,8 +6,9 @@
   <title>Privacy Notice — Robot Fantôme</title>
   <meta name="description" content="What robotfantome.com collects (almost nothing), how Stripe checkout works, what happens to order details, and the mailing list. No accounts, no analytics, no tracking cookies." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="canonical" href="https://robotfantome.com/privacy.html" />
-  <meta name="theme-color" content="#3f7d9c" />
+  <meta name="theme-color" content="#4b5fa8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
@@ -17,20 +18,27 @@
   <header class="gh-nav">
     <div class="gh-nav-inner">
       <a href="./" class="gh-nav-brand" aria-label="robot fantôme home">
+        <svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>
         <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
       </a>
+
       <nav class="gh-nav-links" aria-label="Site navigation">
         <a href="./">music press-kit</a>
         <a href="./#shop">shop</a>
         <a href="./#blog">blog</a>
         <a href="./#mixtape">mix-tape</a>
+        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
       </nav>
+
+      <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main class="gh-main product-page">
     <p class="product-breadcrumb"><a href="./">&larr; back home</a></p>
-    <article class="product-detail" style="display: block; max-width: 46rem;">
+    <article class="product-detail legal-detail">
       <h1 class="product-name">Privacy notice</h1>
       <p class="product-tagline">We collect almost nothing. Here's the "almost" — in plain language.</p>
 
@@ -41,7 +49,7 @@
         when you email us. This page explains both.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">Browsing this site</h2>
+      <h2 class="product-name legal-h2">Browsing this site</h2>
       <p class="product-description">
         Reading the press-kit, blog, or mix-tape sends no personal data to us. The
         site is served by GitHub Pages with Cloudflare in front; both process
@@ -51,7 +59,7 @@
         so your browser requests font files from Google's servers.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">Your cart</h2>
+      <h2 class="product-name legal-h2">Your cart</h2>
       <p class="product-description">
         The shop cart lives in your browser's <code>localStorage</code> — on your
         device, never transmitted to us while you browse. When you press Checkout,
@@ -59,7 +67,7 @@
         quantities. No name, no address, no payment details.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">Paying with Stripe</h2>
+      <h2 class="product-name legal-h2">Paying with Stripe</h2>
       <p class="product-description">
         Payment happens on a Stripe-hosted checkout page. Stripe collects your name,
         email, shipping address, and card details under
@@ -67,7 +75,7 @@
         Card details never touch this site or our servers — not even in transit.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">What we receive after an order</h2>
+      <h2 class="product-name legal-h2">What we receive after an order</h2>
       <p class="product-description">
         When your payment completes, Stripe notifies our checkout service, which
         emails us the order: your name, email address, shipping address, and what
@@ -78,7 +86,7 @@
         Our systems store no customer database — only stock counts.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">The mailing list</h2>
+      <h2 class="product-name legal-h2">The mailing list</h2>
       <p class="product-description">
         Joining the mailing list is a plain email you send us. We keep your address
         only to send drop, release, and show announcements, and we delete it the
@@ -86,7 +94,7 @@
         pixels.
       </p>
 
-      <h2 class="product-name" style="font-size: 1.1rem;">Your data, your call</h2>
+      <h2 class="product-name legal-h2">Your data, your call</h2>
       <p class="product-description">
         Want to know what we have about you, or want it deleted? Email
         <a href="mailto:absolutelyplausible@gmail.com">absolutelyplausible@gmail.com</a>
@@ -106,15 +114,17 @@
   <footer>
     <div class="footer-inner">
       <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="footer-ap" aria-label="Absolutely Plausible — official site">
-        <img src="assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
+        <img src="./assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
       <p class="footer-license">
-        Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
+        Photos &amp; artwork &copy; <span class="footer-year">2026</span> robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-        &mdash; <a href="privacy.html">privacy</a> &middot; <a href="terms.html">shop terms</a>
+        &mdash; <a href="./privacy.html">privacy</a> &middot; <a href="./terms.html">shop terms</a>
       </p>
+      <p class="footer-version">v4.9.0-beta.1</p>
     </div>
   </footer>
+  <script src="js/main.js"></script>
 </body>
 </html>

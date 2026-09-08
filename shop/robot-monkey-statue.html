@@ -7,15 +7,22 @@
   <meta name="description" content="Robot &amp; monkey — archival print of an original found-photo Robot Fantôme collage. Indie art from Orlando." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/favicon.png" />
   <link rel="canonical" href="https://robotfantome.com/shop/robot-monkey-statue.html" />
   <meta name="theme-color" content="#4b5fa8" />
   <meta property="og:type" content="product" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Robot &amp; monkey — print — Robot Fantôme" />
   <meta property="og:description" content="Robot &amp; monkey — archival print of an original found-photo Robot Fantôme collage. Indie art from Orlando." />
   <meta property="og:url" content="https://robotfantome.com/shop/robot-monkey-statue.html" />
   <meta property="og:image" content="https://robotfantome.com/assets/images/shop/robot-monkey-statue.jpg" />
+  <meta property="og:image:alt" content="Robot &amp; monkey — print" />
   <meta property="og:site_name" content="Robot Fantôme" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@robotfantome" />
+  <meta name="twitter:title" content="Robot &amp; monkey — print — Robot Fantôme" />
+  <meta name="twitter:description" content="Robot &amp; monkey — archival print of an original found-photo Robot Fantôme collage. Indie art from Orlando." />
+  <meta name="twitter:image" content="https://robotfantome.com/assets/images/shop/robot-monkey-statue.jpg" />
   <meta name="shop-worker-url" content="https://shop-api.robotfantome.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,14 +58,21 @@
   <header class="gh-nav">
     <div class="gh-nav-inner">
       <a href="../" class="gh-nav-brand" aria-label="robot fantôme home">
+        <svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>
         <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
       </a>
+
       <nav class="gh-nav-links" aria-label="Site navigation">
         <a href="../">music press-kit</a>
-        <a href="../#shop">shop</a>
+        <a href="../#shop" class="active" aria-current="page">shop</a>
         <a href="../#blog">blog</a>
         <a href="../#mixtape">mix-tape</a>
+        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
       </nav>
+
+      <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -88,13 +102,15 @@
         <span>an Absolutely Plausible production</span>
       </a>
       <p class="footer-license">
-        Website Design &copy; 2026 by robot fant&ocirc;me &mdash;
+        Photos &amp; artwork &copy; <span class="footer-year">2026</span> robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
         &mdash; <a href="../privacy.html">privacy</a> &middot; <a href="../terms.html">shop terms</a>
       </p>
+      <p class="footer-version">v4.9.0-beta.1</p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
   <script src="../js/shop-catalog.js"></script>
   <script src="../js/cart.js"></script>
 </body>

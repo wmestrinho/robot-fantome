@@ -92,6 +92,8 @@
 
     drawer = document.createElement('aside');
     drawer.className = 'cart-drawer';
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-modal', 'true');
     drawer.setAttribute('aria-label', 'Shopping cart');
     drawer.setAttribute('aria-hidden', 'true');
     drawer.innerHTML =
@@ -161,17 +163,24 @@
     if (checkoutBtn) checkoutBtn.disabled = n === 0;
   }
 
+  var lastFocus = null;
   function openDrawer() {
-    if (!drawer) return;
+    if (!drawer || drawer.classList.contains('open')) return;
+    lastFocus = document.activeElement;
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
     overlay.hidden = false;
+    var closeBtn = drawer.querySelector('.cart-close');
+    if (closeBtn) closeBtn.focus();
   }
   function closeDrawer() {
-    if (!drawer) return;
+    if (!drawer || !drawer.classList.contains('open')) return;
     drawer.classList.remove('open');
     drawer.setAttribute('aria-hidden', 'true');
     overlay.hidden = true;
+    // hand keyboard focus back to whatever opened the drawer
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    lastFocus = null;
   }
 
   function checkout() {
