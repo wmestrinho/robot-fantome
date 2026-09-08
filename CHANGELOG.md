@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.9.2-beta.1] - 2026-09-08
+### Changed
+- Switching to a tab now loads that tab's images immediately instead of waiting on the browser's lazy-load timer (other tabs stay lazy).
+- EPK lead photo is the press portrait (`press-profile.jpg`) again; the wide CityArts live shot opens the live gallery and stays the social-card image.
+- Shop hero photos capped at 1200px / JPEG q80 (35–45% smaller); sticker and “Art is Local” photos converted from PNG to JPEG (75% smaller). Tracked assets 11.1 MB → 6.4 MB.
+
+### Removed
+- 11 unreferenced photos under `assets/images/` (kept in git history).
+
 ## [4.9.1-beta.1] - 2026-09-08
 ### Changed
 - One source for the site chrome: `scripts/build_shop.py` now splices the header and footer into `index.html`, `privacy.html`, and `terms.html` (`<!-- chrome:nav -->` / `<!-- chrome:footer -->` markers) as well as the product pages.

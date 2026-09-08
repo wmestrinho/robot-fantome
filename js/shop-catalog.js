@@ -3,7 +3,7 @@ window.RF_CATALOG = {
     "name": "Robot Fantôme sticker pack",
     "price": 7,
     "compare_at": 12,
-    "image": "/assets/images/shop/sticker-pack-01.png",
+    "image": "/assets/images/shop/sticker-pack-01.jpg",
     "url": "/shop/sticker-pack-01.html",
     "pickup": false
   },

@@ -56,7 +56,13 @@
       else a.removeAttribute('aria-current');
     });
     panels.forEach(function (p) {
-      p.classList.toggle('active', p.id === target);
+      var on = p.id === target;
+      p.classList.toggle('active', on);
+      // Lazy images inside a hidden panel only start loading a few seconds after it
+      // becomes visible; switch them to eager the moment the tab opens.
+      if (on) {
+        p.querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; });
+      }
     });
     // Profile sidebar is only shown on the Blog & Story tab
     if (layout) layout.classList.toggle('show-sidebar', target === 'blog');
