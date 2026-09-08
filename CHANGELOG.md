@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.10.1-beta.1] - 2026-09-08
+### Fixed
+- Mailing-list form now actually disappears after a successful signup (the flex rule was overriding the `hidden` attribute).
+
 ## [4.10.0-beta.1] - 2026-09-08
 ### Added
 - Mailing-list signup form on the home tab, posting to the Worker's new `POST /subscribe` (honeypot + rate cap on the Worker side). Falls back to a mailto: form without JavaScript.

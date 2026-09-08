@@ -898,6 +898,7 @@ a.gh-pinned-card {
   gap: 0.5rem;
   align-items: stretch;
 }
+.mailing-form[hidden] { display: none; }
 .mailing-input {
   flex: 1 1 14rem;
   min-width: 0;
