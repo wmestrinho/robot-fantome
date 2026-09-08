@@ -13,8 +13,10 @@ Reads shop/products.json + VERSION, then:
        Shop tab       → between <!-- shop:cards:start -->    and <!-- shop:cards:end -->
        Home preview   → between <!-- shop:featured:start --> and <!-- shop:featured:end -->
                         (products with "featured": true, in catalog order)
-  4. Stamps `v<VERSION>` into every <p class="footer-version"> (index, privacy, terms,
-     product pages) so the VERSION file stays the single source of truth.
+  4. Splices the shared header and footer into index.html, privacy.html, terms.html
+     between <!-- chrome:nav:start/end --> and <!-- chrome:footer:start/end --> (the
+     product pages get the same chrome inline), stamping `v<VERSION>` into the footer
+     so the VERSION file stays the single source of truth.
   5. Writes sitemap.xml — home, legal pages, and every non-draft product page, with
      <lastmod> taken from each file's last git commit (today if the file is modified).
 
@@ -41,6 +43,10 @@ CARD_START = "<!-- shop:cards:start -->"
 CARD_END = "<!-- shop:cards:end -->"
 FEATURED_START = "<!-- shop:featured:start -->"
 FEATURED_END = "<!-- shop:featured:end -->"
+NAV_START = "<!-- chrome:nav:start -->"
+NAV_END = "<!-- chrome:nav:end -->"
+FOOTER_START = "<!-- chrome:footer:start -->"
+FOOTER_END = "<!-- chrome:footer:end -->"
 
 # Pages (besides the generated product pages) whose footer version is kept in sync.
 VERSIONED_PAGES = ["index.html", "privacy.html", "terms.html"]
@@ -143,10 +149,12 @@ def resolve_image(p, prefix=""):
 # ── Shared chrome (nav + footer) ──────────────────────────────────────────────
 # `root` is the relative path back to the site root ("../" from /shop/, "./" at root).
 
-def nav_html(root, active=None):
+def nav_html(root, active=None, tabs=False):
+    """Site header. `tabs=True` (index.html) adds data-tab hooks for js/main.js."""
     def link(tab, label):
         href = root if tab == "music" else f"{root}#{tab}"
-        attrs = ' class="active" aria-current="page"' if tab == active else ""
+        attrs = f' data-tab="{tab}"' if tabs else ""
+        attrs += ' class="active" aria-current="page"' if tab == active else ""
         return f'        <a href="{href}"{attrs}>{label}</a>'
 
     return f"""  <header class="gh-nav">
@@ -432,6 +440,14 @@ def main():
             spliced = splice(new, FEATURED_START, FEATURED_END, "\n".join(card(p) for p in featured))
             if spliced is None:
                 print(f"  ! index.html has no {FEATURED_START} / {FEATURED_END} markers — home preview left as-is")
+            else:
+                new = spliced
+        is_index = relpath == "index.html"
+        nav = nav_html("./", active="music" if is_index else None, tabs=is_index)
+        for start, end, block in ((NAV_START, NAV_END, nav), (FOOTER_START, FOOTER_END, footer_html("./", version))):
+            spliced = splice(new, start, end, block, indent="  ")
+            if spliced is None:
+                print(f"  ! {relpath}: missing {start} / {end} markers — chrome left as-is")
             else:
                 new = spliced
         if not VERSION_RE.search(new):

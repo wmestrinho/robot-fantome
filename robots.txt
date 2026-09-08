@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+# Repo housekeeping that GitHub Pages serves but that is not site content
+Disallow: /scripts/
+Disallow: /.github/
+Disallow: /*.md$
+Disallow: /*.py$
 
 Sitemap: https://robotfantome.com/sitemap.xml

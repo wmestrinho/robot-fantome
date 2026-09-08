@@ -68,6 +68,7 @@
 <body>
 
   <!-- ── Top Nav ─────────────────────────────────────────────── -->
+  <!-- chrome:nav:start -->
   <header class="gh-nav">
     <div class="gh-nav-inner">
       <a href="./" class="gh-nav-brand" aria-label="robot fantôme home">
@@ -77,18 +78,18 @@
 
       <nav class="gh-nav-links" aria-label="Site navigation">
         <a href="./" data-tab="music" class="active" aria-current="page">music press-kit</a>
-        <a href="#shop" data-tab="shop">shop</a>
-        <a href="#blog" data-tab="blog">blog</a>
-        <a href="#mixtape" data-tab="mixtape">mix-tape</a>
+        <a href="./#shop" data-tab="shop">shop</a>
+        <a href="./#blog" data-tab="blog">blog</a>
+        <a href="./#mixtape" data-tab="mixtape">mix-tape</a>
         <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
       </nav>
 
       <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-
     </div>
   </header>
+  <!-- chrome:nav:end -->
 
   <!-- ── Profile Layout ──────────────────────────────────────── -->
   <div class="gh-layout">
@@ -314,12 +315,12 @@
 
             <button class="gh-pinned-card" data-tab="shop">
               <h3 class="gh-pinned-name">Shop</h3>
-              <p class="gh-pinned-desc">Small runs of stickers, reclaimed-pallet builds, archival prints, and Second-Hand-made shirts.</p>
+              <p class="gh-pinned-desc">Stickers, prints, pallet builds, and one-of-a-kind shirts &mdash; every piece has its own page.</p>
             </button>
 
             <button class="gh-pinned-card" data-tab="blog">
               <h3 class="gh-pinned-name">Blog &amp; Story</h3>
-              <p class="gh-pinned-desc">Build notes, show recaps, artwork, volunteer work, and the long work history.</p>
+              <p class="gh-pinned-desc">Posts, the Absolutely Plausible archive, artwork, and the full r&eacute;sum&eacute;.</p>
             </button>
 
             <button class="gh-pinned-card" data-tab="mixtape">
@@ -544,7 +545,7 @@
             <p class="ap-est">Creative collective roots: 2008 &mdash; Formally incorporated: July 2014</p>
             <p class="gh-panel-body">
               The studio behind the web work, AI tooling, consulting, products, events,
-              and open-source experiments. 11+ years running.
+              and open-source experiments.
               Official site: <a href="https://absolutelyplausible.com" target="_blank" rel="noopener">absolutelyplausible.com &nearr;</a>
             </p>
           </div>
@@ -558,6 +559,7 @@
               <figcaption class="gallery-caption">
                 Robot &amp; Monkey collage &copy; by robot fant&ocirc;me &mdash;
                 <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+                &mdash; <a href="shop/robot-monkey-statue.html">print in the shop &rarr;</a>
               </figcaption>
             </figure>
             <figure class="gallery-item">
@@ -572,6 +574,7 @@
               <figcaption class="gallery-caption">
                 Art is LOCAL &copy; 2017 by robot fant&ocirc;me &mdash;
                 <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
+                &mdash; <a href="shop/collage-print-art-is-local.html">print in the shop &rarr;</a>
               </figcaption>
             </figure>
             <figure class="gallery-item">
@@ -596,7 +599,7 @@
           <div class="gallery-grid">
             <figure class="gallery-item">
               <a class="gallery-link" href="assets/images/pallet-shoe-cubby.jpg" target="_blank" rel="noopener"><img src="assets/images/pallet-shoe-cubby.jpg" width="960" height="960" alt="Shoe cubby built from a reclaimed wood pallet" loading="lazy" decoding="async" class="gallery-image" /></a>
-              <figcaption class="gallery-caption">Pallet shoe cubby &mdash; reclaimed-wood build</figcaption>
+              <figcaption class="gallery-caption">Pallet shoe cubby &mdash; reclaimed-wood build &mdash; <a href="shop/pallet-shoe-cubby.html">in the shop &rarr;</a></figcaption>
             </figure>
           </div>
         </div>
@@ -1143,20 +1146,22 @@
   </div>
 
   <!-- ── Footer ────────────────────────────────────────────────── -->
+  <!-- chrome:footer:start -->
   <footer>
     <div class="footer-inner">
       <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="footer-ap" aria-label="Absolutely Plausible — official site">
-        <img src="assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
+        <img src="./assets/images/ap-logo.png" width="707" height="706" alt="Absolutely Plausible logo" class="footer-ap-logo" />
         <span>an Absolutely Plausible production</span>
       </a>
       <p class="footer-license">
         Photos &amp; artwork &copy; <span class="footer-year">2026</span> robot fant&ocirc;me &mdash;
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
-        &mdash; <a href="privacy.html">privacy</a> &middot; <a href="terms.html">shop terms</a>
+        &mdash; <a href="./privacy.html">privacy</a> &middot; <a href="./terms.html">shop terms</a>
       </p>
-      <p class="footer-version">v4.9.0-beta.1</p>
+      <p class="footer-version">v4.9.1-beta.1</p>
     </div>
   </footer>
+  <!-- chrome:footer:end -->
 
   <script src="js/main.js"></script>
   <script src="js/shop-catalog.js"></script>

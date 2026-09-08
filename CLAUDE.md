@@ -46,7 +46,7 @@ Defined via CSS custom properties in `:root` inside `css/style.css`:
 - **Font:** Share Tech Mono throughout — hierarchy via size, letter-spacing, text-transform only
 - **Layout:** CSS Grid, max-width 960px. The former DIY product-page language is canonical: indigo top bar, teal highlights, hard navy borders, square corners (`--radius: 0`), offset shadows (`--card-shadow`), and press-on-hover controls. The profile sidebar shows only on Blog & Story.
 - **Effects:** no CRT scanlines, glow, or glitch animations (retired — don't add them back). Motion is limited to functional hover/press feedback and respects `prefers-reduced-motion`.
-- **Stylesheet structure:** a base layer followed by a `DIY PRODUCT-PAGE LAYOUT` override section at the bottom. New rules go in whichever section they belong to; don't add a third layer.
+- **Stylesheet structure:** one base layer, plus a short `DIY PRODUCT-PAGE LAYOUT` section at the bottom holding only the group-selector overrides that can't be folded into a single base rule. Edit the base rule for a selector; don't add a same-selector override at the bottom.
 
 ## Content structure
 

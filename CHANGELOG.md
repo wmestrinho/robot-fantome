@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.9.1-beta.1] - 2026-09-08
+### Changed
+- One source for the site chrome: `scripts/build_shop.py` now splices the header and footer into `index.html`, `privacy.html`, and `terms.html` (`<!-- chrome:nav -->` / `<!-- chrome:footer -->` markers) as well as the product pages.
+- `css/style.css`: the DIY override layer is folded into the base rules where selectors match (1606 → 1473 lines); verified by computed-style diff on every page. Only group-selector overrides remain in the DIY section.
+- Blog & Story: artwork and project captions link to the matching shop prints instead of repeating them; stale "11+ years running" dropped; pinned-card teasers no longer repeat the nav and Shop intro word for word.
+- `robots.txt` disallows crawling of repo housekeeping (`/scripts/`, `/.github/`, `*.md`, `*.py`).
+
+### Removed
+- `design-qa.md` and `STOREFRONT_UPGRADE_PLAN.md` (completed; history stays in git and this changelog).
+
 ## [4.9.0-beta.1] - 2026-09-08
 ### Added
 - Pathlight Kitchen certificates (Culinary Program, Dining Room & Service Skills) shown in the résumé with downloadable PDFs.
