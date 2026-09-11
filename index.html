@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="canonical" href="https://robotfantome.com/" />
-  <meta name="theme-color" content="#4b5fa8" />
+  <meta name="theme-color" content="#f3c547" />
   <meta name="shop-worker-url" content="https://shop-api.robotfantome.com" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4.10.2-beta.1" />
+  <link rel="stylesheet" href="css/style.css?v=4.11.0-beta.1" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,16 +72,16 @@
   <header class="gh-nav">
     <div class="gh-nav-inner">
       <a href="./" class="gh-nav-brand" aria-label="robot fantôme home">
-        <svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>
+        <img class="gh-nav-logo" src="./assets/images/shop/robot-ghost-standing.png" width="340" height="600" alt="" />
         <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
       </a>
 
-      <nav class="gh-nav-links" aria-label="Site navigation">
+      <nav class="gh-nav-links" aria-label="Primary">
         <a href="./" data-tab="music" class="active" aria-current="page">music press-kit</a>
         <a href="./#shop" data-tab="shop">shop</a>
         <a href="./#blog" data-tab="blog">blog</a>
         <a href="./#mixtape" data-tab="mixtape">mix-tape</a>
-        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
+        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">Absolutely Plausible</a>
       </nav>
 
       <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -153,9 +153,9 @@
       <div class="gh-sidebar-section">
         <h2 class="gh-sidebar-title">Languages</h2>
         <ul class="gh-lang-list">
-          <li><span class="gh-lang-dot" style="background:#3f7d9c"></span>Portuguese &mdash; native</li>
-          <li><span class="gh-lang-dot" style="background:#4b5fa8"></span>English &mdash; fluent</li>
-          <li><span class="gh-lang-dot" style="background:#6a4f9e"></span>Spanish &mdash; fluent</li>
+          <li><span class="gh-lang-dot" style="background:var(--sticker-gold)"></span>Portuguese &mdash; native</li>
+          <li><span class="gh-lang-dot" style="background:var(--accent)"></span>English &mdash; fluent</li>
+          <li><span class="gh-lang-dot" style="background:var(--color-text)"></span>Spanish &mdash; fluent</li>
         </ul>
       </div>
 
@@ -170,8 +170,12 @@
         <!-- README card -->
         <div class="gh-readme">
           <div class="gh-readme-body">
-            <h1 class="hero-title" data-text="Robot Fantôme">Robot Fant&ocirc;me</h1>
-            <p class="hero-subtitle">Indie &nbsp;/&nbsp; Punk &nbsp;/&nbsp; Rock &mdash; Orlando, FL</p>
+            <img class="hero-sticker hero-sticker-rising" src="assets/images/shop/robot-ghost-rising.png" width="374" height="600" alt="" decoding="async" />
+            <div class="hero-copy">
+              <h1 class="hero-title" data-text="Robot Fantôme">Robot Fant&ocirc;me</h1>
+              <p class="hero-subtitle">Indie &nbsp;/&nbsp; Punk &nbsp;/&nbsp; Rock <span class="hero-location">&mdash; Orlando, FL</span></p>
+            </div>
+            <img class="hero-sticker hero-sticker-standing" src="assets/images/shop/robot-ghost-standing.png" width="340" height="600" alt="" decoding="async" />
           </div>
         </div>
 
@@ -350,14 +354,19 @@
 
       <!-- ── Panel: Shop ─────────────────────────────────────── -->
       <div class="gh-panel" id="shop">
-        <p class="gh-panel-body">
+        <p class="gh-panel-body sticker-intro">
+          <span>
           Small runs of stickers, reclaimed-pallet builds, archival collage prints, and
           <em>Second-Hand-made</em> shirts. Each piece has its own page.
+          </span>
         </p>
         <div class="shop-grid">
         <!-- shop:cards:start -->
         <a class="shop-card" href="shop/sticker-pack-01.html">
-          <img src="assets/images/shop/sticker-pack-01.jpg" alt="Robot Fantôme sticker pack" class="gallery-image" width="800" height="600" loading="lazy" decoding="async" />
+          <span class="sticker-product-pair">
+          <img src="assets/images/shop/robot-ghost-rising.png" alt="Robô Fantasma sticker — gold ghost rising from a robot with X eyes" width="374" height="600" loading="lazy" decoding="async" />
+          <img src="assets/images/shop/robot-ghost-standing.png" alt="Robô Fantasma sticker — standing robot with a gold ghost tail" width="340" height="600" loading="lazy" decoding="async" />
+        </span>
           <div class="shop-card-body">
             <span class="shop-card-name">Robot Fantôme sticker pack</span>
             <span class="shop-card-tagline">Hand-drawn Robô Fantasma die-cut vinyl — slap the ghost on everything.</span>
@@ -435,9 +444,11 @@
 
       <!-- ── Panel: Mix-Tape ─────────────────────────────────── -->
       <div class="gh-panel" id="mixtape">
-        <p class="gh-panel-body">
+        <p class="gh-panel-body sticker-intro">
+          <span>
           Friends and fellow travelers of the Orlando scene and beyond &mdash;
           the artists we love, share stages with, and keep on rotation.
+          </span>
         </p>
 
         <ul class="mixtape-artists">
@@ -498,9 +509,11 @@
 
       <!-- ── Panel: Blog ─────────────────────────────────────── -->
       <div class="gh-panel" id="blog">
-        <p class="gh-panel-body">
+        <p class="gh-panel-body sticker-intro">
+          <span>
           Build logs, show recaps, release notes, the Absolutely Plausible archive,
           volunteer work, and the long work history.
+          </span>
         </p>
 
         <div class="blog-list">
@@ -1169,13 +1182,13 @@
         <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
         &mdash; <a href="./privacy.html">privacy</a> &middot; <a href="./terms.html">shop terms</a>
       </p>
-      <p class="footer-version">v4.10.2-beta.1</p>
+      <p class="footer-version">v4.11.0-beta.1</p>
     </div>
   </footer>
   <!-- chrome:footer:end -->
 
-  <script src="js/main.js?v=4.10.2-beta.1"></script>
-  <script src="js/shop-catalog.js?v=4.10.2-beta.1"></script>
-  <script src="js/cart.js?v=4.10.2-beta.1"></script>
+  <script src="js/main.js?v=4.11.0-beta.1"></script>
+  <script src="js/shop-catalog.js?v=4.11.0-beta.1"></script>
+  <script src="js/cart.js?v=4.11.0-beta.1"></script>
 </body>
 </html>

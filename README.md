@@ -3,9 +3,11 @@
 Music portfolio and creative home of Robot Fantôme / Absolutely Plausible,
 in plain HTML/CSS/JS. No Canva. No build tools. No dependencies. Just our code.
 
-The visual system uses the former DIY Recyclopedia product-page layout: indigo
-top bar, teal highlights, hard navy borders, offset shadows, flat cards, and
-press-on-hover controls.
+The visual system follows the two original Robô Fantasma stickers: black ink,
+white paper, golden watercolour accents, die-cut edges, and pressed controls.
+The existing four-tab layout, content order, sidebar, galleries, and shop stay
+intact. Theme tokens live in `css/style.css`; both transparent originals are
+`assets/images/shop/robot-ghost-rising.png` and `robot-ghost-standing.png`.
 
 **Live:** [robotfantome.com](https://robotfantome.com)
 
@@ -48,6 +50,11 @@ python3 scripts/build_shop.py
 It rewrites `shop/<id>.html`, `js/shop-catalog.js`, the product-card blocks in
 `index.html`, every footer version, and `sitemap.xml`. Never hand-edit those.
 Checkout is handled by the separate `shop-api` Cloudflare Worker.
+
+The sticker pack's optional `images` list supplies both original artworks
+(path, alt text, and real dimensions) to its existing card/detail media slot.
+Other products keep their single `image`. Decorative mascot appearances reuse
+the same originals; preserve their white borders, signatures, and proportions.
 
 ## Validation
 

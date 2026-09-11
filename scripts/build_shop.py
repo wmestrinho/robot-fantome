@@ -58,17 +58,6 @@ AVAILABILITY = {
     "in-stock": "https://schema.org/InStock",
 }
 
-LOGO_SVG = (
-    '<svg class="gh-nav-logo" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true">'
-    '<path fill="currentColor" d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 '
-    '2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723'
-    'L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 '
-    '0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75'
-    '.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 '
-    '0-.006.002-.009.004Z"/></svg>'
-)
-
-
 def e(text):
     """HTML-escape (and keep the result safe inside attributes too)."""
     return html.escape(str(text), quote=True)
@@ -161,16 +150,16 @@ def nav_html(root, active=None, tabs=False):
     return f"""  <header class="gh-nav">
     <div class="gh-nav-inner">
       <a href="{root}" class="gh-nav-brand" aria-label="robot fantôme home">
-        {LOGO_SVG}
+        <img class="gh-nav-logo" src="{root}assets/images/shop/robot-ghost-standing.png" width="340" height="600" alt="" />
         <span class="gh-nav-brand-text">robot fant&ocirc;me</span>
       </a>
 
-      <nav class="gh-nav-links" aria-label="Site navigation">
+      <nav class="gh-nav-links" aria-label="Primary">
 {link("music", "music press-kit")}
 {link("shop", "shop")}
 {link("blog", "blog")}
 {link("mixtape", "mix-tape")}
-        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">absolutely plausible &nearr;</a>
+        <a href="https://absolutelyplausible.com" target="_blank" rel="noopener" class="gh-nav-external">Absolutely Plausible</a>
       </nav>
 
       <button class="gh-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -199,6 +188,23 @@ def footer_html(root, version):
 
 # ── Product pages ─────────────────────────────────────────────────────────────
 
+def product_media(p, prefix="", eager=False):
+    """Use original sticker pairs in the same media slot as single product photos."""
+    loading = "eager" if eager else "lazy"
+    if p.get("images"):
+        images = "\n".join(
+            f'          <img src="{e(prefix + img["src"])}" alt="{e(img["alt"])}" '
+            f'width="{int(img["width"])}" height="{int(img["height"])}" '
+            f'loading="{loading}" decoding="async" />'
+            for img in p["images"]
+        )
+        return f'<span class="sticker-product-pair">\n{images}\n        </span>'
+    return (
+        f'<img src="{e(resolve_image(p, prefix))}" alt="{e(p["name"])}" '
+        f'class="gallery-image" width="800" height="600" loading="{loading}" decoding="async" />'
+    )
+
+
 def product_page(p, currency, worker_url, version):
     """Full standalone HTML for one product page (lives at shop/<id>.html)."""
     pid = p["id"]
@@ -208,7 +214,6 @@ def product_page(p, currency, worker_url, version):
     meta_desc = p.get("meta_description", "")
     price = p.get("price_usd")
     url = f"{SITE}/shop/{pid}.html"
-    img_rel = resolve_image(p, prefix="../")          # for <img> on the page
     img_abs = f"{SITE}/{resolve_image(p)}"            # absolute for OG / schema
     avail = availability(p)
     draft = p.get("draft", False)
@@ -221,7 +226,7 @@ def product_page(p, currency, worker_url, version):
         "@type": "Product",
         "name": name,
         "description": desc,
-        "image": img_abs,
+        "image": [f'{SITE}/{img["src"]}' for img in p["images"]] if p.get("images") else img_abs,
         "brand": {"@type": "Brand", "name": "Robot Fantôme"},
         "url": url,
         "offers": {
@@ -271,7 +276,7 @@ def product_page(p, currency, worker_url, version):
   <link rel="icon" type="image/png" href="../assets/favicon.png" />
   <link rel="apple-touch-icon" href="../assets/favicon.png" />
   <link rel="canonical" href="{url}" />
-  <meta name="theme-color" content="#4b5fa8" />
+  <meta name="theme-color" content="#f3c547" />
   <meta property="og:type" content="product" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="{e(name)} — Robot Fantôme" />
@@ -301,7 +306,7 @@ def product_page(p, currency, worker_url, version):
     <p class="product-breadcrumb"><a href="../#shop">&larr; back to shop</a></p>
     <article class="product-detail">
       <div class="product-media">
-        <img src="{img_rel}" alt="{e(name)}" class="gallery-image" width="800" height="600" loading="eager" decoding="async" />
+        {product_media(p, prefix="../", eager=True)}
       </div>
       <div class="product-info">
         {badge_html}
@@ -329,12 +334,11 @@ def card(p):
     pid = p["id"]
     name = p["name"]
     tagline = p.get("tagline", "")
-    img = resolve_image(p)
     badge = p.get("badge")
     badge_html = f'\n            <span class="product-badge">{e(badge)}</span>' if badge else ""
     draft_html = '\n            <span class="shop-card-draft">draft</span>' if p.get("draft") else ""
     return f"""        <a class="shop-card" href="shop/{e(pid)}.html">
-          <img src="{e(img)}" alt="{e(name)}" class="gallery-image" width="800" height="600" loading="lazy" decoding="async" />
+          {product_media(p)}
           <div class="shop-card-body">{badge_html}{draft_html}
             <span class="shop-card-name">{e(name)}</span>
             <span class="shop-card-tagline">{e(tagline)}</span>

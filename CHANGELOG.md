@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [4.11.0-beta.1] - 2026-09-11
+### Changed
+- Rethemed the existing site around both original Robô Fantasma stickers: paper surfaces, ink outlines, watercolour gold controls, and white sticker edges. Navigation, tab order, content, music embeds, and checkout flow are preserved.
+- Both original transparent artworks appear in the home title card, across the tab introductions and shared footer; the standing robot replaces the generic header bolt.
+- Sticker product cards and the product detail show both designs in the existing media slot, sourced from the catalog's optional `images` list.
+- Responsive navigation, visible keyboard focus, and larger form/cart controls accompany the theme; small screens reserve space for the artwork.
+
 ## [4.10.2-beta.1] - 2026-09-08
 ### Fixed
 - Stylesheet and script URLs carry `?v=<VERSION>` on every page, so a new release no longer runs with a browser- or CDN-cached old `style.css` / `main.js`.

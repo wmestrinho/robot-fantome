@@ -40,13 +40,13 @@ python3 -m http.server 8080
 
 Defined via CSS custom properties in `:root` inside `css/style.css`:
 
-- **Brand palette (Absolutely Plausible / Robot Fantôme):** steel-blue, indigo, violet, and teal on cool paper.
-  - `--accent` `#4b5fa8` (indigo-blue, primary) · `--accent-mid` `#3f7d9c` (AP logo steel-blue, secondary) · `--accent-deep` `#6a4f9e` (violet) · `--accent-teal` `#5cb0ad` (highlight)
-  - Background: faint cool paper `#f0f1f6` · surfaces `#ffffff`, `#f6f7fb` · text `#1e2238` · muted `#626887` · borders `#1e2238` (hard navy)
+- **Brand palette (Robot Fantôme sticker theme, requested by Luiz 2026-09-11):** black ink, white paper, and golden watercolour drawn from both original Robô Fantasma stickers. This project-specific theme supersedes the previous indigo/teal appearance.
+  - `--sticker-gold` is the button/active-tab surface; `--accent` is dark ochre for readable links; `--color-text` is ink. All component colours use the tokens in `css/style.css`.
+  - Originals: `assets/images/shop/robot-ghost-rising.png` (374×600) and `robot-ghost-standing.png` (340×600). Preserve transparency, white die-cut borders, lettering, artist signatures, and proportions. Do not redraw or recolour them.
 - **Font:** Share Tech Mono throughout — hierarchy via size, letter-spacing, text-transform only
-- **Layout:** CSS Grid, max-width 960px. The former DIY product-page language is canonical: indigo top bar, teal highlights, hard navy borders, square corners (`--radius: 0`), offset shadows (`--card-shadow`), and press-on-hover controls. The profile sidebar shows only on Blog & Story.
+- **Layout:** CSS Grid, max-width 960px. Preserve the current tab structure, content order, sidebar, galleries, music player, and checkout. Paper cards use ink borders, modest rounded corners, offset shadows, and pressed controls. Both mascots frame the existing home title; smaller appearances have reserved space in tab introductions and the shared footer. The profile sidebar shows only on Blog & Story.
 - **Effects:** no CRT scanlines, glow, or glitch animations (retired — don't add them back). Motion is limited to functional hover/press feedback and respects `prefers-reduced-motion`.
-- **Stylesheet structure:** one base layer, plus a short `DIY PRODUCT-PAGE LAYOUT` section at the bottom holding only the group-selector overrides that can't be folded into a single base rule. Edit the base rule for a selector; don't add a same-selector override at the bottom.
+- **Stylesheet structure:** one base layer, plus a short `SHARED STICKER SURFACES` section holding group-selector treatments. Edit base rules instead of stacking same-selector overrides.
 
 ## Content structure
 
