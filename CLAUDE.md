@@ -70,5 +70,5 @@ Legacy hashes `#press`, `#about`, `#volunteer`, `#ap`, `#overview` alias to thei
 - No npm, no bundlers, no frameworks — keep it that way.
 - Photos and artwork are CC BY-NC 4.0; preserve attribution notices in HTML. Source code is under the repo `LICENSE` (all rights reserved) — don't describe the code as CC.
 - Never hand-edit generated output (`shop/*.html`, `js/shop-catalog.js`, the marker blocks in `index.html`, `sitemap.xml`, footer version strings). Change the source and rerun `scripts/build_shop.py`.
-- **Version:** bump `VERSION` on every behaviour/UI change, add a CHANGELOG entry, then run `python3 scripts/build_shop.py` to stamp the footers. Conventions: see `ap-ops-workspace/PROJECT-RULES.md`.
+- **Version:** bump `VERSION` on every behaviour/UI change, add a CHANGELOG entry, then run `python3 scripts/build_shop.py` to stamp the footers. Conventions: see [`ap-ops/docs/PROJECT-RULES.md`](https://github.com/wmestrinho/ap-ops/blob/main/docs/PROJECT-RULES.md).
 - Before committing: `python3 scripts/validate_agent_baseline.py && python3 scripts/build_shop.py --check`.
