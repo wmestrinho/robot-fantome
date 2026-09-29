@@ -42,5 +42,13 @@ Validation
 - Run: `python3 scripts/validate_agent_baseline.py`
 - Also run any project-specific test/build/validation commands documented in `README.md`, `CLAUDE.md`, package scripts, or CI workflows.
 
+Marketing audit (2026-09-29)
+- Findings + checklist: `.github/marketing/MARKETING-AUDIT-2026-09-29.md` (MKT-01…21).
+- Tier 1, just do (branch + VERSION bump): MKT-08 branded 404, MKT-09 return-policy
+  JSON-LD, MKT-10 1200×630 share card, MKT-14 WebP sources, MKT-18 link fixes, MKT-21 icons.
+- Waiting on Luiz: Search Console/Bing (MKT-01), shipping rates (MKT-03), analytics
+  account + privacy wording (MKT-04), release/handle naming (MKT-05), résumé placement
+  (MKT-06), Pages deploy scope (MKT-07), press-kit assets (MKT-02).
+
 Coordination warning
 - Multiple AI agents may be working across this workspace. Do not run destructive git commands, delete files, rebase, or force-push without checking status and coordinating with Luiz.
